@@ -1,25 +1,43 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+   name: "Store",
+
    state: {
-      sampleBlogCards: [
-         { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "September 6, 2021" },
-         { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "September 6, 2021" },
-         { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "September 6, 2021" },
-         { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "September 6, 2021" }
-      ],
-      editPost: null,
+      resultList: [],
+      searchPhrase: '',
+
    },
    mutations: {
-      toggleEditPost(state, payload) {
-         state.editPost = payload;
-         console.log(state.editPost)
+      setResultList(state, payload) {
+         state.resultList = payload
+      },
+      setSearchPhrase(state, payload) {
+         state.searchPhrase = payload
       },
    },
    actions: {
+      async fetchApiObject() {
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/" + this.state.searchPhrase)
+            .then(response => {
+               this.commit("setResultList", response.data)
+               console.log(response.data)
+            })
+      }
+
+   },
+
+   getters: {
+      getResultList(state) {
+         return state.resultList
+      },
+      getSearchPhrase(state) {
+         return state.searchPhrase
+      },
    },
    modules: {
    }
