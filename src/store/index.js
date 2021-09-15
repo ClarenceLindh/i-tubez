@@ -1,18 +1,26 @@
-import {createStore} from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-export default createStore({
- name: 'store',
+Vue.use(Vuex)
 
- state: {
-
- },
- mutations: {
-
- },
- actions: {
-
- },
- getters: {
-
- },
+export default new Vuex.Store({
+   state: {
+      sampleBlogCards: [
+         { blogTitle: "Blog Card #1", blogCoverPhoto: "stock-1", blogDate: "September 6, 2021" },
+         { blogTitle: "Blog Card #2", blogCoverPhoto: "stock-2", blogDate: "September 6, 2021" },
+         { blogTitle: "Blog Card #3", blogCoverPhoto: "stock-3", blogDate: "September 6, 2021" },
+         { blogTitle: "Blog Card #4", blogCoverPhoto: "stock-4", blogDate: "September 6, 2021" }
+      ],
+      editPost: null,
+   },
+   mutations: {
+      toggleEditPost(state, payload) {
+         state.editPost = payload;
+         console.log(state.editPost)
+      },
+   },
+   actions: {
+   },
+   modules: {
+   }
 })
