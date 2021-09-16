@@ -11,18 +11,18 @@
         
       </div>
     </div>
-    <Player />
+    
   </div>
 </template>
 
 <script>
-import Player from "../components/Player.vue";
+
 import ResultCard from "../components/ResultCard.vue";
 
 export default {
   name: "Home",
 
-  components: { Player, ResultCard },
+  components: {  ResultCard },
 
   data() {
     return {};
@@ -40,6 +40,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+.result-card-wrap {
+  display: flex;
+  margin-bottom: 2vh;
+  padding-top: 0;
+  max-width: 100vw;
+}
+
 // .result-card-wrap {
 //   h3 {
 //     font-weight: 300;

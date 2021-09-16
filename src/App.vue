@@ -5,16 +5,17 @@
       <router-view />
 
     </div>
+    <Player />
   </div>
 </template>
 
 <script>
 import Navigation from "./components/Navigation";
-
+import Player from "./components/Player.vue";
 
 export default {
   name: "app",
-  components: { Navigation },
+  components: { Navigation, Player },
 
   
   mounted() {},
@@ -36,6 +37,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+}
+h1{
+  margin-left: 2vw;
+  text-align: center;
 }
 
 .app {

@@ -31,6 +31,13 @@ export default {
 
 <style lang="scss" scoped>
 .result-card {
+  display: flex;
   margin-bottom: 2vh;
+  max-width: 100vw;
+  flex-direction: column;
+
+  .info{
+    max-width: 100vwpx;
+  }
 }
 </style>
