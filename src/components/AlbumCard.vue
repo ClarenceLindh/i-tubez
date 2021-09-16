@@ -1,6 +1,6 @@
 <template>
   <div  class="result-card">
-    <h3 v-show="post.type===artist">{{post.name}}</h3>
+    <h3>{{post.album.name}}</h3>
   </div>
 </template>
 

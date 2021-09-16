@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "searchResults",
+  name: "songCard",
 
   props: ["post"],
 
@@ -20,7 +20,6 @@ export default {
 
   methods: {
     play(id) {
-      // calling global variable
       window.player.loadVideoById(id);
       window.player.playVideo();
       this.playing = true;
@@ -33,11 +32,6 @@ export default {
 .result-card {
   display: flex;
   margin-bottom: 2vh;
-  max-width: 100vw;
   flex-direction: column;
-
-  .info{
-    max-width: 100vwpx;
-  }
 }
 </style>

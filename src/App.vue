@@ -98,6 +98,9 @@ button,
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
   }
+  &:active{
+    color: yellow;
+  }
 }
 
 

@@ -1,28 +1,45 @@
 <template>
   <div>
-    <h1>Home</h1>
-    <div class="result-card-wrap">
-      <div class="container">
-        <ResultCard
+    <div class="album-playlist-wrap">
+      <div class="album-card-wrap">
+        <h2>Albums</h2>
+        <AlbumCard
           :post="result"
           v-for="(result, index) in resultList.content"
           :key="index"
         />
-        
+      </div>
+      <div class="artist-card-wrap">
+        <h2>Artists</h2>
+        <ArtistCard
+          :post="result"
+          v-for="(result, index) in resultList.content"
+          :key="index"
+        />
       </div>
     </div>
-    
+    <div class="song-card-wrap">
+      <div class="container">
+        <h2>Songs</h2>
+        <SongCard
+          :post="result"
+          v-for="(result, index) in resultList.content"
+          :key="index"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
-import ResultCard from "../components/ResultCard.vue";
+import SongCard from "../components/SongCard.vue";
+import AlbumCard from "../components/AlbumCard.vue";
+import ArtistCard from "../components/ArtistCard.vue";
 
 export default {
   name: "Home",
 
-  components: {  ResultCard },
+  components: { SongCard, AlbumCard, ArtistCard },
 
   data() {
     return {};
@@ -42,7 +59,30 @@ export default {
 <style lang="scss" scoped>
 
 
-.result-card-wrap {
+.album-playlist-wrap {
+  display: flex;
+  flex-direction: row;
+
+.artist-card-wrap {
+    justify-content: flex-end;
+    text-align: right;
+    margin-bottom: 2vh;
+    margin-top: 4px;
+    width: 50vw;
+    flex:1;
+  }
+  .album-card-wrap {
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 2vh;
+    margin-top: 4px;
+    width: 50vw;
+    flex:2;
+  }
+
+}
+
+.song-card-wrap {
   display: flex;
   margin-bottom: 2vh;
   padding-top: 0;
@@ -54,7 +94,7 @@ export default {
 //     font-weight: 300;
 //     font-size: 28px;
 //     margin-bottom: 32px;
-    
+
 //   }
 // }
 
