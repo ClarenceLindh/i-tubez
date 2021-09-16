@@ -12,22 +12,27 @@ export default new Vuex.Store({
       searchPhrase: '',
 
    },
+
    mutations: {
       setResultList(state, payload) {
          state.resultList = payload
+         console.log('setResultList to: ', state.resultList)
+         console.log(this.state.resultList.length)
       },
       setSearchPhrase(state, payload) {
          state.searchPhrase = payload
+         console.log('setSearchPhrase to: ', state.searchPhrase)
       },
    },
+
    actions: {
-      async fetchApiObject() {
-         await axios.get("https://yt-music-api.herokuapp.com/api/yt/" + this.state.searchPhrase)
+      async fetchBySearchPhrase() {
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/search/"
+            + this.state.searchPhrase)
             .then(response => {
                this.commit("setResultList", response.data)
-               console.log(response.data)
             })
-      }
+      },
 
    },
 

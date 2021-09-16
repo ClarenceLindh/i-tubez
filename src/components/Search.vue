@@ -1,15 +1,37 @@
 <template>
-  <div class="search"><input type="text" placeholder="Search " />
-  <i class="fas fa-search"></i></div>
+  <div class="search-wrapper">
+    <input 
+      id="search-bar" 
+      type="text" 
+      placeholder="Search..." 
+      v-on:keyup.enter="search(searchPhrase)"
+      v-model="searchPhrase"
+    />
+    <i class="fas fa-search"></i>
+  </div>
 </template>
 
 <script>
 export default {
   name: "Search",
+
   components: {},
-  data() {},
+
+  data()  {
+    return {
+      searchPhrase: this.searchPhrase
+    }
+  },
+
   created() {},
-  methods: {},
+
+  methods: {
+    search(searchPhrase){
+      this.$store.commit("setSearchPhrase", searchPhrase)
+      this.$store.dispatch("fetchBySearchPhrase")
+    }
+  },
+
 };
 </script>
 
@@ -22,8 +44,7 @@ input {
   padding: 5px;
 }
 
-.fa-search{
+.fa-search {
   margin-left: -25px;
 }
-
 </style>
