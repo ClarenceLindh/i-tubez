@@ -5,11 +5,10 @@
       <div class="container">
         <ResultCard
           :post="result"
-          v-for="(result, index) in samplePost"
+          v-for="(result, index) in resultList.content"
           :key="index"
         />
-        {{ samplePost }}
-        {{ resultList }}
+        
       </div>
     </div>
     <Player />
@@ -46,7 +45,9 @@ export default {
     font-weight: 300;
     font-size: 28px;
     margin-bottom: 32px;
+    
   }
+  max-height: 100vh;
 }
 
 .updates {
