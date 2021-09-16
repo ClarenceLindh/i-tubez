@@ -10,6 +10,7 @@ export default new Vuex.Store({
    state: {
       resultList: [],
       searchPhrase: '',
+      samplePost: [{ id: 1 }, { id: 2 }, { id: 3 }]
 
    },
 
