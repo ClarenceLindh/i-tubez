@@ -4,10 +4,10 @@
       id="search-bar" 
       type="text" 
       placeholder="Search..." 
-      v-on:keyup.enter="search(searchPhrase)"
+      v-on:keyup="search(searchPhrase)"
       v-model="searchPhrase"
-    />
-    <i class="fas fa-search"></i>
+    >
+    <i class="fas fa-search"/>
   </div>
 </template>
 

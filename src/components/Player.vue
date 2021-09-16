@@ -1,9 +1,7 @@
 <template>
   <div class="player-wrapper">
-    <button @click="play('xg3J5slvB-k')">Play song 1</button>
-    <button @click="play('CtkZxnkbjtI')">Play song 2</button>
-    <button v-show="!playing" @click="play()"><i class="fas fa-play"></i></button>
-    <button v-show="playing" @click="pause()"><i class="fas fa-pause"></i></button>
+    <button @click="play()"><i class="fas fa-play"></i></button>
+    <button @click="pause()"><i class="fas fa-pause"></i></button>
   </div>
 </template>
 
@@ -33,7 +31,7 @@ export default {
 
 .player-wrapper {
  display: flex;
- position: absolute;
+ position: fixed;
  bottom: 0;
  width: 100%;
  justify-content: center;
