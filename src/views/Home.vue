@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="album-playlist-wrap">
-      <div class="album-card-wrap">
-        <h2>Albums</h2>
-        <AlbumCard
+      <div class="artist-card-wrap">
+        <h2>Artists</h2>
+        <ArtistCard
           :post="result"
           v-for="(result, index) in resultList.content"
           :key="index"
         />
       </div>
-      <div class="artist-card-wrap">
-        <h2>Artists</h2>
-        <ArtistCard
+      <div class="album-card-wrap">
+        <h2>Albums</h2>
+        <AlbumCard
           :post="result"
           v-for="(result, index) in resultList.content"
           :key="index"
@@ -62,31 +62,37 @@ export default {
 .album-playlist-wrap {
   display: flex;
   flex-direction: row;
+  margin-left: 5px;
+  margin-right: 5px;
 
-.artist-card-wrap {
-    justify-content: flex-end;
-    text-align: right;
-    margin-bottom: 2vh;
-    margin-top: 4px;
-    width: 50vw;
-    flex:1;
-  }
-  .album-card-wrap {
-    justify-content: flex-start;
+  .artist-card-wrap {
     text-align: left;
     margin-bottom: 2vh;
     margin-top: 4px;
     width: 50vw;
-    flex:2;
+    flex: 1;
+    background: #303030;
   }
-
+  .album-card-wrap {
+    text-align: right;
+    margin-bottom: 2vh;
+    margin-top: 4px;
+    width: 50vw;
+    background: #303030;
+  }
 }
 
 .song-card-wrap {
   display: flex;
-  margin-bottom: 2vh;
+  text-align: left;
+  margin-bottom: 60px;
   padding-top: 0;
-  max-width: 100vw;
+  margin-left: 5px;
+  
+
+  .container {
+    width: 97vw;
+  }
 }
 
 // .result-card-wrap {

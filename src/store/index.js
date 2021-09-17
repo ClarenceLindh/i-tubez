@@ -10,8 +10,7 @@ export default new Vuex.Store({
    state: {
       resultList: [],
       searchPhrase: '',
-      samplePost: [{ id: 1 }, { id: 2 }, { id: 3 }]
-
+      playingStatus: false,
    },
 
    mutations: {
@@ -24,6 +23,9 @@ export default new Vuex.Store({
          state.searchPhrase = payload
          console.log('setSearchPhrase to: ', state.searchPhrase)
       },
+      setPlayingStatus(state, payload){
+         state.playingStatus = payload
+      }
    },
 
    actions: {
@@ -43,6 +45,9 @@ export default new Vuex.Store({
       },
       getSearchPhrase(state) {
          return state.searchPhrase
+      },
+      getPlayingStatus(state){
+         return state.playingStatus
       },
    },
    modules: {

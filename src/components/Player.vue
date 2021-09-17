@@ -8,20 +8,17 @@
 <script>
 export default {
   methods: {
-    play(id) {
-      // calling global variable
-      window.player.loadVideoById(id);
+    play() {
+      window.player.loadVideoById();
       window.player.playVideo();
-      this.playing = true;
     },
     pause() {
       window.player.pauseVideo();
-      this.playing = false;
     },
   },
+
   data(){
     return {
-      playing: false,
     }
   }
 };
@@ -35,10 +32,14 @@ export default {
  bottom: 0;
  width: 100%;
  justify-content: center;
+ background: rgba($color: #000000, $alpha: .9);
+ margin-left: 5px;
+ margin-right: 60px;
 }
 
 button {
- margin-bottom: 5px;
+ margin-bottom: 10px;
+ margin-top: 10px;
  margin-left: 2px;
  margin-right: 2px;
 }

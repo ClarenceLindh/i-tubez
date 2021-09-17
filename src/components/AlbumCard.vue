@@ -20,9 +20,5 @@ export default {
 .result-card {
   display: flex;
   flex-direction: column;
-
-  .info {
-    max-width: 100vw;
-  }
 }
 </style>

@@ -68,21 +68,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.header{
-    font-size: 60px;
-  }
+.header {
+  font-size: 60px;
+  color: #fff;
+}
 header {
-  background-color: #fff;
   padding: 0 25px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 99;
+  background-color: black;
+  // position: fixed;
 
   #search {
     background: tomato;
   }
 
-  .branding>a{
+  .branding > a {
     font-size: 30px;
   }
 
@@ -107,7 +109,7 @@ header {
       .header {
         font-weight: 600;
         font-size: 24px;
-        color: #000;
+        color: #fff;
         text-decoration: none;
       }
     }

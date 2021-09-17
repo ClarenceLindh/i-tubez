@@ -38,6 +38,11 @@ export default {
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
 }
+
+body{
+  background-color: black;
+}
+
 h1{
   margin-left: 2vw;
   text-align: center;
@@ -45,13 +50,11 @@ h1{
 
 .app {
   display: flex;
+  
   flex-direction: column;
   min-height: 100vh;
-}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
+  color: #fff;
+  background: black;
 }
 
 .link {
@@ -63,20 +66,6 @@ h1{
 
 .link-light {
   color: #fff;
-}
-
-.arrow {
-  margin-left: 8px;
-  width: 12px;
-  path {
-    fill: #000;
-  }
-}
-
-.arrow-light {
-  path {
-    fill: #fff;
-  }
 }
 
 button,
@@ -98,46 +87,8 @@ button,
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
   }
-  &:active{
-    color: yellow;
-  }
 }
 
 
-.button-light {
-  background-color: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.button-interactive {
-  pointer-events: none !important;
-  cursor: none !important;
-  background-color: rgba(128, 128, 128, 0.5) !important;
-}
-
-.result-card-wrap {
-  position: relative;
-  padding: 80px 16px;
-  background-color: #f1f1f1;
-  @media (min-width: 500px) {
-    padding: 100px 16px;
-  }
-
-  .result-cards {
-    display: grid;
-    gap: 32px;
-    grid-template-columns: 1fr;
-    @media (min-width: 500px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 900px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (min-width: 1200px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-}
 
 </style>
