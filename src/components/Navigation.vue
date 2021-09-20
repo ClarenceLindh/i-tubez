@@ -2,8 +2,9 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }">Blogs</router-link>
+        <router-link class="header" :to="{ name: 'Home' }">iTubez</router-link>
       </div>
+      <Search id="Search" />
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
@@ -14,7 +15,9 @@
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
+        <router-link @click="mobileNavFalse" class="link" :to="{ name: 'Home' }"
+          >Home</router-link
+        >
         <router-link class="link" :to="{ name: 'About' }">About</router-link>
       </ul>
     </transition>
@@ -23,11 +26,13 @@
 
 <script>
 import menuIcon from "../assets/Icons/bars-regular.svg";
+import Search from "./Search.vue";
 
 export default {
   name: "Navigation",
   components: {
     menuIcon,
+    Search,
   },
   data() {
     return {
@@ -55,22 +60,35 @@ export default {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
+    mobileNavFalse() {
+      this.mobileNav = false;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.header {
+  font-size: 50px !important;
+  color: #fff;
+}
 header {
-  background-color: #fff;
   padding: 0 25px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  z-index: 99;
+  z-index: 1;
+  // position: fixed;
+  background: #303030;
+
+  .branding > a {
+    font-size: 30px;
+  }
 
   .link {
     font-weight: 500;
     padding: 0 8px;
     transition: 0.3s color ease;
+    color: #fff;
 
     &:hover {
       color: #1eb8b8;
@@ -88,7 +106,7 @@ header {
       .header {
         font-weight: 600;
         font-size: 24px;
-        color: #000;
+        color: #fff;
         text-decoration: none;
       }
     }
@@ -117,7 +135,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 32px;
+    top: 65px;
     right: 25px;
     height: 25px;
     width: auto;
@@ -138,6 +156,9 @@ header {
     .link {
       padding: 15px 0;
       color: #fff;
+      &:hover {
+      color: #1eb8b8;
+    }
     }
   }
 

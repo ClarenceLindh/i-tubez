@@ -16,13 +16,21 @@ const routes = [
   }
  },
  {
-  path: "/About",
+  path: "/about",
   name: "About",
   component: About,
   meta: {
    title: 'About'
   }
  },
+ // {
+ //  path: "/artist/:id",
+ //  name: "Artist",
+ //  component: Artist,
+ //  meta: {
+ //   title: 'Artist'
+ //  }
+ // },
 
 ]
 
@@ -33,7 +41,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
- document.title = `${to.meta.title} | Blog`;
+ document.title = `${to.meta.title} | iTubez`;
  next();
 })
 
