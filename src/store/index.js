@@ -11,6 +11,7 @@ export default new Vuex.Store({
       resultList: [],
       searchPhrase: null,
       playingStatus: false,
+      songList: [],
    },
 
    mutations: {
@@ -25,6 +26,10 @@ export default new Vuex.Store({
       },
       setPlayingStatus(state, payload){
          state.playingStatus = payload
+      },
+      setSongList(state, payload) {
+         state.songList = payload
+         console.log('setSongList to: ', state.songList)
       }
    },
 
