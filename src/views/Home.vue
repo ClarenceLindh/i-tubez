@@ -67,6 +67,9 @@ h2 {
   flex-direction: row;
   margin-left: 5px;
   margin-right: 5px;
+  h2 {
+    text-align: center;
+  }
 
   .artist-card-wrap {
     text-align: left;
@@ -90,6 +93,9 @@ h2 {
   
   padding-top: 0;
   margin-left: 5px;
+  h2 {
+    text-align: center;
+  }
   
 
   .container {

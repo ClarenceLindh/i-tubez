@@ -135,7 +135,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 32px;
+    top: 65px;
     right: 25px;
     height: 25px;
     width: auto;

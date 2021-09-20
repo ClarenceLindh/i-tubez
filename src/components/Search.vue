@@ -38,13 +38,18 @@ export default {
 <style lang="scss" scoped>
 input {
   width: 40vw;
+  font-size: 18px;
   max-width: 400px;
-  margin-left: 20vw;
+  margin-top: 18px;
+  margin-left: 25px;
   font-weight: 500;
   padding: 5px;
+  border-radius: 5px;
+  
 }
 
 .fa-search {
   margin-left: -25px;
+  color: black;
 }
 </style>

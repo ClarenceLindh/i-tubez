@@ -12,6 +12,7 @@ export default new Vuex.Store({
       searchPhrase: null,
       playingStatus: false,
       songList: [],
+      currentSong: '',
    },
 
    mutations: {
@@ -24,13 +25,17 @@ export default new Vuex.Store({
          state.searchPhrase = payload
          console.log('setSearchPhrase to: ', state.searchPhrase)
       },
-      setPlayingStatus(state, payload){
+      setPlayingStatus(state, payload) {
          state.playingStatus = payload
       },
       setSongList(state, payload) {
-         state.songList = payload
+         state.songList.push(payload)
          console.log('setSongList to: ', state.songList)
-      }
+      },
+      setCurrentSong(state, payload) {
+         state.currentSong = payload
+         console.log('setCurrentSong to: ', payload)
+      },
    },
 
    actions: {
@@ -41,7 +46,6 @@ export default new Vuex.Store({
                this.commit("setResultList", response.data)
             })
       },
-
    },
 
    getters: {
@@ -51,8 +55,14 @@ export default new Vuex.Store({
       getSearchPhrase(state) {
          return state.searchPhrase
       },
-      getPlayingStatus(state){
+      getPlayingStatus(state) {
          return state.playingStatus
+      },
+      getSongList(state) {
+         return state.songList
+      },
+      getCurrentSong(state){
+         return state.currentSong
       },
    },
    modules: {

@@ -22,6 +22,7 @@ export default {
 .result-card {
   display: flex;
   position: relative;
+  transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
   flex-direction: row;
@@ -29,7 +30,7 @@ export default {
   color: #fff;
   border-radius: 10px;
   &:hover {
-    background: #1d1d1d;
+    background-color: rgba(48, 48, 48, 0.7);
   }
   @media (min-width: 800px) {
     flex-direction: row;
@@ -58,7 +59,7 @@ export default {
     border-radius: 10px 0 0 10px;
     &:hover {
       color: #fff;
-      background: #1d1d1d;
+      background-color: rgba(48, 48, 48, 0.7);
     }
   }
 }

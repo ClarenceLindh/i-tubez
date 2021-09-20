@@ -3,14 +3,18 @@
     <button
       class="play-button"
       v-show="post.videoId"
-      @click="play(post.videoId)"
+      @click="
+        play(post.videoId),
+          addToSonglist(post.videoId),
+          addToCurrentSong(post.videoId)
+      "
     >
       <i class="fas fa-play fa-2x"></i>
     </button>
     <button class="share-button"><i class="far fa-copy fa-2x"></i></button>
-    <h3 class="name">{{ post.artist.name }} - </h3>
-    <h3 class="song-name">{{ post.name }} - </h3>
-    <h4 class="album"> {{ post.album.name }}</h4>
+    <h3 class="name">{{ post.artist.name }} -</h3>
+    <h3 class="song-name">{{ post.name }} -</h3>
+    <h4 class="album">{{ post.album.name }}</h4>
     <img v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
 </template>
@@ -27,6 +31,12 @@ export default {
     play(id) {
       window.player.loadVideoById(id);
     },
+    addToSonglist(id) {
+      this.$store.commit("setSongList", id);
+    },
+    addToCurrentSong(id) {
+      this.$store.commit("setCurrentSong", id);
+    },
   },
 };
 </script>
@@ -35,6 +45,7 @@ export default {
 .result-card {
   display: flex;
   position: relative;
+  transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
   flex-direction: row;
@@ -42,7 +53,7 @@ export default {
   color: #fff;
   border-radius: 10px;
   &:hover {
-    background: #1d1d1d;
+    background-color: rgba(48, 48, 48, 0.7);
   }
   @media (min-width: 800px) {
     flex-direction: row;
@@ -82,10 +93,10 @@ export default {
     border-radius: 10px 0 0 10px;
     &:hover {
       color: #fff;
-      background: #1d1d1d;
+      background-color: rgba(48, 48, 48, 0.7);
     }
   }
-  .share-button{
+  .share-button {
     height: 100px;
     margin-top: auto;
     color: black;
@@ -94,7 +105,7 @@ export default {
     border-radius: 0 10px 10px 0;
     &:hover {
       color: #fff;
-      background: #1d1d1d;
+      background-color: rgba(48, 48, 48, 0.7);
     }
   }
 }

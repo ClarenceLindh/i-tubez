@@ -22,14 +22,16 @@ export default {
 .result-card {
   display: flex;
   position: relative;
+  transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
   flex-direction: row;
   background: #303030;
   color: #fff;
   border-radius: 10px;
+  
   &:hover {
-    background: #1d1d1d;
+    background-color: rgba(48, 48, 48, 0.7);
   }
   @media (min-width: 800px) {
     flex-direction: row;
@@ -38,7 +40,8 @@ export default {
   .name {
     margin-left: 10px;
     margin-top: 15px;
-    justify-content: center;
+    text-align: left;
+    max-width: 25vw;
   }
 
 
