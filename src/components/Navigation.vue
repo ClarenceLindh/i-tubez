@@ -92,6 +92,7 @@ header {
     font-weight: 500;
     padding: 0 8px;
     transition: 0.3s color ease;
+    color: #fff;
 
     &:hover {
       color: #1eb8b8;

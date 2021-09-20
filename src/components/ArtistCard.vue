@@ -1,6 +1,8 @@
 <template>
-  <div class="result-card">
-    <h3>{{ post.name }}</h3>
+  <div v-show="(post.type = 'artist')" class="result-card">
+    <button class="share-button"><i class="far fa-copy fa-2x"></i></button>
+    <h3 class="name">{{post.name}}</h3>
+    <img v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
 </template>
 
@@ -17,16 +19,47 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .result-card {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 4px;
-  
+  position: relative;
+  height: 100px;
+  margin-bottom: 0.5vh;
+  flex-direction: row;
+  background: #303030;
+  color: #fff;
+  border-radius: 10px;
+  &:hover {
+    background: #1d1d1d;
+  }
+  @media (min-width: 800px) {
+    flex-direction: row;
+  }
 
-  .info {
-    max-width: 100vw;
+  .name {
+    margin-left: 10px;
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  img {
+    position: absolute;
+    height: 100px;
+    right: 0;
+    object-fit: cover;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .share-button{
+    height: 100px;
+    margin-top: auto;
+    color: black;
+    background: #fff;
+    margin-bottom: auto;
+    border-radius: 10px 0 0 10px;
+    &:hover {
+      color: #fff;
+      background: #1d1d1d;
+    }
   }
 }
 </style>

@@ -9,7 +9,7 @@ export default new Vuex.Store({
 
    state: {
       resultList: [],
-      searchPhrase: '',
+      searchPhrase: null,
       playingStatus: false,
    },
 
@@ -30,7 +30,7 @@ export default new Vuex.Store({
 
    actions: {
       async fetchBySearchPhrase() {
-         await axios.get("https://yt-music-api.herokuapp.com/api/yt/search/"
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/search/search+"
             + this.state.searchPhrase)
             .then(response => {
                this.commit("setResultList", response.data)

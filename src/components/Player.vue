@@ -1,7 +1,10 @@
 <template>
   <div class="player-wrapper">
+    <button @class="previousSong()"><i class="fas fa-step-backward"></i></button>
     <button @click="play()"><i class="fas fa-play"></i></button>
     <button @click="pause()"><i class="fas fa-pause"></i></button>
+    <button @click="nextSong()"><i class="fas fa-step-forward"></i></button>
+    
   </div>
 </template>
 
@@ -14,6 +17,12 @@ export default {
     },
     pause() {
       window.player.pauseVideo();
+    },
+    nextSong() {
+      
+    },
+    previousSong() {
+
     },
   },
 

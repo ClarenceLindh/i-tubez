@@ -1,5 +1,15 @@
 <template>
   <div>
+    <div class="song-card-wrap">
+      <div class="container">
+        <h2>Songs</h2>
+        <SongCard
+          :post="result"
+          v-for="(result, index) in resultList.content"
+          :key="index"
+        />
+      </div>
+    </div>
     <div class="album-playlist-wrap">
       <div class="artist-card-wrap">
         <h2>Artists</h2>
@@ -12,16 +22,6 @@
       <div class="album-card-wrap">
         <h2>Albums</h2>
         <AlbumCard
-          :post="result"
-          v-for="(result, index) in resultList.content"
-          :key="index"
-        />
-      </div>
-    </div>
-    <div class="song-card-wrap">
-      <div class="container">
-        <h2>Songs</h2>
-        <SongCard
           :post="result"
           v-for="(result, index) in resultList.content"
           :key="index"
@@ -58,6 +58,9 @@ export default {
 
 <style lang="scss" scoped>
 
+h2 {
+  font-size: 50px;
+}
 
 .album-playlist-wrap {
   display: flex;
@@ -67,25 +70,24 @@ export default {
 
   .artist-card-wrap {
     text-align: left;
-    margin-bottom: 2vh;
     margin-top: 4px;
     width: 50vw;
-    flex: 1;
-    background: #303030;
+
+    margin-bottom: 60px;
   }
   .album-card-wrap {
     text-align: right;
-    margin-bottom: 2vh;
     margin-top: 4px;
+    margin-left: 5px;
     width: 50vw;
-    background: #303030;
+    margin-bottom: 60px;
   }
 }
 
 .song-card-wrap {
   display: flex;
   text-align: left;
-  margin-bottom: 60px;
+  
   padding-top: 0;
   margin-left: 5px;
   
