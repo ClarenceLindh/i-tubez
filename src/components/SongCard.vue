@@ -48,12 +48,14 @@ export default {
   transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
-  flex-direction: row;
+  margin-left: 10px;
+  margin-right: 10px;
   background: #303030;
   color: #fff;
   border-radius: 10px;
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
+    transform: scale(1.02);
   }
   @media (min-width: 800px) {
     flex-direction: row;
@@ -81,11 +83,12 @@ export default {
     height: 100px;
     right: 0;
     object-fit: cover;
+
     border-radius: 0 10px 10px 0;
   }
 
   .play-button {
-    height: 100px;
+    height: 100%;
     margin-top: auto;
     color: black;
     background: #fff;
@@ -97,7 +100,7 @@ export default {
     }
   }
   .share-button {
-    height: 100px;
+    height: 100%;
     margin-top: auto;
     color: black;
     background: #fff;

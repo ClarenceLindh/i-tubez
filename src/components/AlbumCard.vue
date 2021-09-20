@@ -25,6 +25,8 @@ export default {
   transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
+  margin-left: 5px;
+  margin-right: 10px;
   flex-direction: row;
   background: #303030;
   color: #fff;
@@ -32,6 +34,7 @@ export default {
   
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
+    transform: scale(1.02);
   }
   @media (min-width: 800px) {
     flex-direction: row;

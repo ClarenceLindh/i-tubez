@@ -23,6 +23,14 @@ const routes = [
    title: 'About'
   }
  },
+ // {
+ //  path: "/artist/:id",
+ //  name: "Artist",
+ //  component: Artist,
+ //  meta: {
+ //   title: 'Artist'
+ //  }
+ // },
 
 ]
 

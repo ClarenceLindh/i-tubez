@@ -65,8 +65,7 @@ h2 {
 .album-playlist-wrap {
   display: flex;
   flex-direction: row;
-  margin-left: 5px;
-  margin-right: 5px;
+  
   h2 {
     text-align: center;
   }
@@ -75,31 +74,19 @@ h2 {
     text-align: left;
     margin-top: 4px;
     width: 50vw;
-
     margin-bottom: 60px;
   }
   .album-card-wrap {
     text-align: right;
     margin-top: 4px;
-    margin-left: 5px;
     width: 50vw;
     margin-bottom: 60px;
   }
 }
 
 .song-card-wrap {
-  display: flex;
-  text-align: left;
-  
-  padding-top: 0;
-  margin-left: 5px;
   h2 {
     text-align: center;
-  }
-  
-
-  .container {
-    width: 97vw;
   }
 }
 
