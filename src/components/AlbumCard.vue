@@ -34,7 +34,7 @@ export default {
   
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
   @media (min-width: 800px) {
     flex-direction: row;

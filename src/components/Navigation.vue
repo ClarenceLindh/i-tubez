@@ -74,6 +74,9 @@ export default {
 }
 header {
   padding: 0 25px;
+  position: fixed;
+  top: 0;
+  width: 100%;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 1;
@@ -135,7 +138,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 65px;
+    top: 69px;
     right: 25px;
     height: 25px;
     width: auto;

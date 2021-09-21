@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
+import Artist from "../views/Artist.vue";
 
 Vue.use(VueRouter);
 
@@ -23,14 +24,14 @@ const routes = [
    title: 'About'
   }
  },
- // {
- //  path: "/artist/:id",
- //  name: "Artist",
- //  component: Artist,
- //  meta: {
- //   title: 'Artist'
- //  }
- // },
+ {
+  path: "/artist/:id",
+  name: "Artist",
+  component: Artist,
+  meta: {
+   title: 'Artist'
+  }
+ },
 
 ]
 

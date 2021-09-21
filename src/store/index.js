@@ -8,7 +8,7 @@ export default new Vuex.Store({
    name: "Store",
 
    state: {
-      resultList: [],
+      songResults: [],
       searchPhrase: null,
       playingStatus: false,
       songList: [],
@@ -16,10 +16,10 @@ export default new Vuex.Store({
    },
 
    mutations: {
-      setResultList(state, payload) {
-         state.resultList = payload
-         console.log('setResultList to: ', state.resultList)
-         console.log(this.state.resultList.length)
+      setSongResults(state, payload) {
+         state.songResults = payload
+         console.log('setSongResults to: ', state.songResults)
+         console.log(this.state.songResults.length)
       },
       setSearchPhrase(state, payload) {
          state.searchPhrase = payload
@@ -39,18 +39,18 @@ export default new Vuex.Store({
    },
 
    actions: {
-      async fetchBySearchPhrase() {
-         await axios.get("https://yt-music-api.herokuapp.com/api/yt/search/search+"
+      async fetchSongsBySearchPhrase() {
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/song/search+"
             + this.state.searchPhrase)
             .then(response => {
-               this.commit("setResultList", response.data)
+               this.commit("setSongResults", response.data)
             })
       },
    },
 
    getters: {
-      getResultList(state) {
-         return state.resultList
+      getSongResults(state) {
+         return state.songResults
       },
       getSearchPhrase(state) {
          return state.searchPhrase

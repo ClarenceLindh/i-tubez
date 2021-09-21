@@ -1,9 +1,8 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation />
+      <Navigation class="navigation" />
       <router-view />
-
     </div>
     <Player />
   </div>
@@ -41,11 +40,6 @@ export default {
 
 body{
   background-color: black;
-}
-
-h1{
-  margin-left: 2vw;
-  text-align: center;
 }
 
 .app {

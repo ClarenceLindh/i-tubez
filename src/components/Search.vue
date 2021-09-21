@@ -28,7 +28,7 @@ export default {
   methods: {
     search(searchPhrase){
       this.$store.commit("setSearchPhrase", searchPhrase)
-      this.$store.dispatch("fetchBySearchPhrase")
+      this.$store.dispatch("fetchSongsBySearchPhrase")
     }
   },
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About</h1>
+    <h2>About</h2>
     <Player />
   </div>
 </template>
@@ -9,5 +9,10 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss" scoped>
+h2 {
+  font-size: 50px;
+  margin-top: 100px;
+}
+
 </style>

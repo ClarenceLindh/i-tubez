@@ -2,7 +2,7 @@
   <div>
     <div class="song-card-wrap">
       <div class="container">
-        <h2>Songs</h2>
+        <h2 class="songs-title">Songs</h2>
         <SongCard
           :post="result"
           v-for="(result, index) in resultList.content"
@@ -57,15 +57,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 h2 {
   font-size: 50px;
+}
+
+.songs-title {
+  margin-top: 100px;
 }
 
 .album-playlist-wrap {
   display: flex;
   flex-direction: row;
-  
+
   h2 {
     text-align: center;
   }
