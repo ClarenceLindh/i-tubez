@@ -25,7 +25,7 @@ export default {
   transition: 500ms ease all;
   height: 100px;
   margin-bottom: 0.5vh;
-  margin-left: 5px;
+  margin-left: 10px;
   margin-right: 10px;
   flex-direction: row;
   background: #303030;

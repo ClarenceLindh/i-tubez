@@ -1,35 +1,43 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
-import Artist from "../views/Artist.vue";
+import Songs from "../views/Songs.vue";
+import Albums from "../views/Albums.vue";
+import Artists from "../views/Artists.vue";
 
 Vue.use(VueRouter);
 
 
 const routes = [
  {
+  path: "/songs:videoId",
+  name: "Songs",
+  component: Songs,
+  meta: {
+   title: 'Songs'
+  }
+ },
+ {
   path: "/",
-  name: "Home",
-  component: Home,
+  name: "Songs",
+  component: Songs,
   meta: {
-   title: 'Home'
+   title: 'Songs'
   }
  },
  {
-  path: "/about",
-  name: "About",
-  component: About,
+  path: "/albums",
+  name: "Albums",
+  component: Albums,
   meta: {
-   title: 'About'
+   title: 'Albums'
   }
  },
  {
-  path: "/artist/:id",
-  name: "Artist",
-  component: Artist,
+  path: "/artists",
+  name: "Artists",
+  component: Artists,
   meta: {
-   title: 'Artist'
+   title: 'Artists'
   }
  },
 

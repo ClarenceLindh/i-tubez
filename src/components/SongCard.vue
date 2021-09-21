@@ -11,7 +11,10 @@
     >
       <i class="fas fa-play fa-2x"></i>
     </button>
-    <button class="share-button"><i class="far fa-copy fa-2x"></i></button>
+    <button class="share-button" @click="copyLink(post.videoId)">
+      <i class="far fa-copy fa-2x"></i>
+    </button>
+    {{ $route.params.id}}
     <h3 class="name">{{ post.artist.name }} -</h3>
     <h3 class="song-name">{{ post.name }} -</h3>
     <h4 class="album">{{ post.album.name }}</h4>
@@ -37,6 +40,17 @@ export default {
     addToCurrentSong(id) {
       this.$store.commit("setCurrentSong", id);
     },
+    async copyLink(id) {
+      try {
+        await navigator.clipboard.writeText('localhost:8080/songs/'+id);
+        console.log('Copied song with viedoId: ', id);
+      } catch ($e){
+        console.log('Cannot copy song with viedoId: ', id)
+      }
+    },
+    songId() {
+      return this.$store.getters.copyLink();
+    }
   },
 };
 </script>

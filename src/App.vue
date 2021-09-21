@@ -4,7 +4,7 @@
       <Navigation class="navigation" />
       <router-view />
     </div>
-    <Player />
+    <Player class="player" />
   </div>
 </template>
 
@@ -82,7 +82,5 @@ button,
     background-color: rgba(48, 48, 48, 0.7);
   }
 }
-
-
 
 </style>

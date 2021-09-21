@@ -2,23 +2,25 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }">iTubez</router-link>
+        <router-link class="header" :to="{ name: 'Songs' }">iTubez</router-link>
       </div>
       <Search id="Search" />
       <div class="nav-links">
         <ul v-show="!mobile">
-          <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-          <router-link class="link" :to="{ name: 'About' }">About</router-link>
+          <router-link class="link" :to="{ name: 'Songs' }">Songs</router-link>
+          <router-link class="link" :to="{ name: 'Artists' }">Artists</router-link>
+          <router-link class="link" :to="{ name: 'Albums' }">Albums</router-link>
         </ul>
       </div>
     </nav>
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link @click="mobileNavFalse" class="link" :to="{ name: 'Home' }"
-          >Home</router-link
+        <router-link @click="mobileNavFalse" class="link" :to="{ name: 'Songs' }"
+          >Songs</router-link
         >
-        <router-link class="link" :to="{ name: 'About' }">About</router-link>
+        <router-link class="link" :to="{ name: 'Artists' }">Artists</router-link>
+        <router-link class="link" :to="{ name: 'Albums' }">Albums</router-link>
       </ul>
     </transition>
   </header>
@@ -73,12 +75,9 @@ export default {
   color: #fff;
 }
 header {
-  padding: 0 25px;
-  position: fixed;
+  padding: 0 ;
   top: 0;
   width: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 1;
   // position: fixed;
   background: #303030;
@@ -89,7 +88,7 @@ header {
 
   .link {
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0 ;
     transition: 0.3s color ease;
     color: #fff;
 
@@ -100,7 +99,7 @@ header {
 
   nav {
     display: flex;
-    padding: 25px 0;
+    padding: 10px 2px;
 
     .branding {
       display: flex;
@@ -122,10 +121,10 @@ header {
       justify-content: flex-end;
 
       ul {
-        margin-right: 32px;
+        margin-right: 10px;
 
         .link {
-          margin-right: 32px;
+          margin-right: 15px;
         }
 
         .link:last-child {
@@ -138,7 +137,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 69px;
+    top: 55px;
     right: 25px;
     height: 25px;
     width: auto;
