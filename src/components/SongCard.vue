@@ -29,8 +29,11 @@ export default {
 
   methods: {
     play(id) {
+      if(window.player && window.player.loadVideoById){
       window.player.loadVideoById(id);
       console.log('playing: ', id);
+      }
+      
     },
     addToSonglist(id) {
       this.$store.commit("setSongList", id);
