@@ -22,10 +22,6 @@ export default {
 
   components: { SongCard },
 
-  data() {
-    return {};
-  },
-
   computed: {
     resultList() {
       return this.$store.state.songResultList;

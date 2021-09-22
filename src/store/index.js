@@ -15,7 +15,6 @@ export default new Vuex.Store({
       // playingStatus: false, not implemented yet
       songList: [],
       currentSong: '',
-      copyLink:''
    },
 
    mutations: {
@@ -30,7 +29,6 @@ export default new Vuex.Store({
       setAlbumResultList(state, payload) {
          state.albumResultList = payload
          console.log('setAlbumResultList to: ', state.albumResultList)
-         console.log(state.albumResultList.length)
       },
       setSearchPhrase(state, payload) {
          state.searchPhrase = payload
@@ -95,9 +93,6 @@ export default new Vuex.Store({
       },
       getArtistResultList(state){
          return state.artistResultList
-      },
-      getVideoId: state => id => {
-         return state.songList.find(videoId => videoId === id);
       },
    },
    modules: {

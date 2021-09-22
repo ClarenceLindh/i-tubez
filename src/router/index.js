@@ -10,20 +10,11 @@ Vue.use(VueRouter);
 
 const routes = [
  {
-  path: "/songs",
+  path: "/",
   name: "Songs",
   component: Songs,
   meta: {
    title: 'Songs'
-  }
- },
- {
-  path: "/linkview/:id",
-  name: "LinkView",
-  props: true,
-  component: LinkView,
-  meta: {
-   title: 'LinkView'
   }
  },
  {
@@ -40,6 +31,15 @@ const routes = [
   component: Artists,
   meta: {
    title: 'Artists'
+  }
+ },
+ {
+  path: "/linkview/:id",
+  name: "LinkView",
+  props: true,
+  component: LinkView,
+  meta: {
+   title: 'LinkView'
   }
  },
 

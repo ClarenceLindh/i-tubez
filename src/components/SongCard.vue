@@ -2,11 +2,10 @@
   <div v-show="post.videoId" class="result-card">
     <button
       class="play-button"
-      v-show="post.videoId"
       @click="
-        play(post.videoId),
-          addToSonglist(post.videoId),
-          addToCurrentSong(post.videoId)
+        addToSonglist(post.videoId),
+          addToCurrentSong(post.videoId),
+          play(post.videoId)
       "
     >
       <i class="fas fa-play fa-2x"></i>
@@ -30,7 +29,9 @@ export default {
 
   methods: {
     play(id) {
+      console.log(id);
       window.player.loadVideoById(id);
+      console.log(id);
     },
     addToSonglist(id) {
       this.$store.commit("setSongList", id);
@@ -45,9 +46,6 @@ export default {
       } catch ($e) {
         console.log("Cannot copy song with viedoId: ", id);
       }
-    },
-    songId() {
-      return this.$store.getters.copyLink();
     },
   },
 };

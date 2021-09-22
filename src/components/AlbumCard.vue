@@ -1,6 +1,5 @@
 <template>
   <div v-show="post.type = 'album'"  class="result-card">
-    <button class="share-button"><i class="far fa-copy fa-2x"></i></button>
     <h3 class="name">{{post.album.name}}</h3>
     <img v-bind:src="post.thumbnails[1].url" alt="" />
   </div>

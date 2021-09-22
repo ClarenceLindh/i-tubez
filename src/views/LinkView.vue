@@ -1,10 +1,6 @@
 <template>
   <div>
     <h1>Shared</h1>
-    <div>
-      {{ url_data }}
-    </div>
-    <div>
     <div class="song-card-wrap" v-show="resultList.content.type = 'song'">
       <div class="container">
         <h2 class="songs-title">Songs</h2>
@@ -15,16 +11,25 @@
         />
       </div>
     </div>
-  </div>
+    <div class="artist-card-wrap">
+      <h2>Artists</h2>
+      <ArtistCard
+        :post="result"
+        v-for="(result, index) in resultList.content"
+        :key="index"
+      />
+    </div>
   </div>
 </template>
 <script>
 import SongCard from "../components/SongCard.vue";
+import ArtistCard from "../components/ArtistCard.vue";
+
 
 export default {
   name: "LinkView",
 
-  components: { SongCard },
+  components: { SongCard, ArtistCard },
 
   mounted(){
     this.url_data = this.$route.params.id
@@ -47,6 +52,7 @@ export default {
   },
   computed:{
     resultList() {
+      console.log(this.$store.state.songResultList)
       return this.$store.state.songResultList;
     },
   },

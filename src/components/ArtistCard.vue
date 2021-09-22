@@ -1,6 +1,8 @@
 <template>
   <div  class="result-card">
-    <button class="share-button"><i class="far fa-copy fa-2x"></i></button>
+    <button class="share-button" @click="copyLink(post.browseId)">
+      <i class="far fa-copy fa-2x"></i>
+    </button>
     <h3 class="name">{{post.name}}</h3>
     <img v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
@@ -14,7 +16,16 @@ export default {
 
   computed: {},
 
-  methods: {},
+  methods: {
+    async copyLink(id) {
+      try {
+        await navigator.clipboard.writeText("localhost:8080/linkview/" + id);
+        console.log("localhost:8080/linkview/" + id);
+      } catch ($e) {
+        console.log("Cannot copy song with viedoId: ", id);
+      }
+    },
+  },
 };
 </script>
 
