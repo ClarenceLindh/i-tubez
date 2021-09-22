@@ -16,7 +16,7 @@
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link @click="mobileNavFalse" class="link" :to="{ name: 'Songs' }"
+        <router-link class="link" :to="{ name: 'Songs' }"
           >Songs</router-link
         >
         <router-link class="link" :to="{ name: 'Artists' }">Artists</router-link>
@@ -94,6 +94,10 @@ header {
 
     &:hover {
       color: #1eb8b8;
+    }
+    &:active {
+      transition: ease-in 0.1s;
+      color: rgb(15, 15, 15);
     }
   }
 

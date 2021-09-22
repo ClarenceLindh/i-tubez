@@ -67,6 +67,10 @@ export default {
       color: #fff;
       background: #1d1d1d;
     }
+    &:active {
+      transition: ease-in 0.1s;
+      background-color: rgb(15, 15, 15);
+    }
   }
 }
 </style>

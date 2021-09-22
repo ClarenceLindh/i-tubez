@@ -96,6 +96,9 @@ export default new Vuex.Store({
       getArtistResultList(state){
          return state.artistResultList
       },
+      getVideoId: state => id => {
+         return state.songList.find(videoId => videoId === id);
+      },
    },
    modules: {
    }

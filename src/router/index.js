@@ -3,13 +3,14 @@ import VueRouter from "vue-router";
 import Songs from "../views/Songs.vue";
 import Albums from "../views/Albums.vue";
 import Artists from "../views/Artists.vue";
+import LinkView from "../views/LinkView.vue";
 
 Vue.use(VueRouter);
 
 
 const routes = [
  {
-  path: "/songs:videoId",
+  path: "/songs",
   name: "Songs",
   component: Songs,
   meta: {
@@ -17,11 +18,12 @@ const routes = [
   }
  },
  {
-  path: "/",
-  name: "Songs",
-  component: Songs,
+  path: "/linkview/:id",
+  name: "LinkView",
+  props: true,
+  component: LinkView,
   meta: {
-   title: 'Songs'
+   title: 'LinkView'
   }
  },
  {

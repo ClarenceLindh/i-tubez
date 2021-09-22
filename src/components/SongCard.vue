@@ -14,10 +14,8 @@
     <button class="share-button" @click="copyLink(post.videoId)">
       <i class="far fa-copy fa-2x"></i>
     </button>
-    {{ $route.params.id}}
     <h3 class="name">{{ post.artist.name }} -</h3>
-    <h3 class="song-name">{{ post.name }} -</h3>
-    <h4 class="album">{{ post.album.name }}</h4>
+    <h3 class="song-name">{{ post.name }}</h3>
     <img v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
 </template>
@@ -42,15 +40,15 @@ export default {
     },
     async copyLink(id) {
       try {
-        await navigator.clipboard.writeText('localhost:8080/songs/'+id);
-        console.log('Copied song with viedoId: ', id);
-      } catch ($e){
-        console.log('Cannot copy song with viedoId: ', id)
+        await navigator.clipboard.writeText("localhost:8080/linkview/" + id);
+        console.log("localhost:8080/linkview/" + id);
+      } catch ($e) {
+        console.log("Cannot copy song with viedoId: ", id);
       }
     },
     songId() {
       return this.$store.getters.copyLink();
-    }
+    },
   },
 };
 </script>
@@ -112,6 +110,10 @@ export default {
       color: #fff;
       background-color: rgba(48, 48, 48, 0.7);
     }
+    &:active {
+      transition: ease-in 0.1s;
+      background-color: rgb(15, 15, 15);
+    }
   }
   .share-button {
     height: 100%;
@@ -123,6 +125,10 @@ export default {
     &:hover {
       color: #fff;
       background-color: rgba(48, 48, 48, 0.7);
+    }
+    &:active {
+      transition: ease-in 0.1s;
+      background-color: rgb(15, 15, 15);
     }
   }
 }

@@ -81,6 +81,10 @@ button,
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
   }
+  &:active{
+    transition: ease-in 0.1s;
+    background-color: rgb(15, 15, 15);
+  }
 }
 
 </style>
