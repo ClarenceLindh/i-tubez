@@ -1,19 +1,6 @@
 <template>
   <div v-show="post.videoId" class="result-card">
     <div class="buttons">
-      <button
-        class="play-button"
-        @click="
-          addToSonglist(post.videoId),
-            addToCurrentSong(post.videoId),
-            play(post.videoId)
-        "
-      >
-        <i class="fas fa-play fa-2x"></i>
-      </button>
-      <button class="queue-button" @click="addToSonglist(post.videoId)">
-        <i class="fas fa-plus fa-2x"></i>
-      </button>
       <button class="share-button" @click="copyLink(post.videoId)">
         <i class="far fa-copy fa-2x"></i>
       </button>
@@ -26,26 +13,20 @@
 
 <script>
 export default {
-  name: "songCard",
+  name: "Playlist",
 
   props: ["post"],
 
-  computed: {},
+  computed: {
+    resultList() {
+      return this.$store.getters.getSongResultList;
+    },
+    playList() {
+      return this.$store.getter.getSongList;
+    }
+  },
 
   methods: {
-    play(id) {
-      if (window.player && window.player.loadVideoById) {
-        window.player.loadVideoById(id);
-        console.log("playing: ", id);
-        this.$store.commit("setPlayingStatus", true)
-      }
-    },
-    addToSonglist(id) {
-      this.$store.commit("setSongList", id);
-    },
-    addToCurrentSong(id) {
-      this.$store.commit("setCurrentSong", id);
-    },
     async copyLink(id) {
       try {
         await navigator.clipboard.writeText("localhost:8080/songs/" + id);
@@ -54,6 +35,10 @@ export default {
         console.log("Cannot copy song with viedoId: ", id);
       }
     },
+    getSongInfo(){
+
+    },
+
   },
 };
 </script>
@@ -105,41 +90,6 @@ export default {
     }
   }
 
-  .play-button {
-    height: 100%;
-    margin-top: auto;
-    color: black;
-    background: #fff;
-    margin-bottom: auto;
-    border-radius: 10px 0 0 10px;
-    &:hover {
-      color: #fff;
-      background-color: rgba(48, 48, 48, 0.7);
-    }
-    &:active {
-      transition: 500ms ease all;
-      background-color: rgb(15, 15, 15);
-    }
-  }
-  .queue-button {
-    height: 100%;
-    margin-top: auto;
-    color: black;
-    background: #fff;
-    margin-bottom: auto;
-    border-radius: 0;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    &:hover {
-      color: #fff;
-      background-color: rgba(48, 48, 48, 0.7);
-    }
-    &:active {
-      transition: 500ms ease all;
-      background-color: rgb(15, 15, 15);
-    }
-  }
-
   .share-button {
     height: 100%;
     margin-top: auto;
@@ -155,7 +105,7 @@ export default {
       transition: 500ms ease all;
       background-color: rgb(15, 15, 15);
     }
-    @media(min-width: 800px){
+    @media (min-width: 800px) {
       border-radius: 0;
     }
   }

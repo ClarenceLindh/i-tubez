@@ -8,18 +8,24 @@
       <div class="nav-links">
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'Songs' }">Songs</router-link>
-          <router-link class="link" :to="{ name: 'Artists' }">Artists</router-link>
-          <router-link class="link" :to="{ name: 'Albums' }">Albums</router-link>
+          <router-link class="link" :to="{ name: 'Artists' }"
+            >Artists</router-link
+          >
+          <router-link class="link" :to="{ name: 'Albums' }"
+            >Albums</router-link
+          >
         </ul>
       </div>
     </nav>
-    <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
+    <button @click="toggleMobileNav" class="menu-icon" v-show="mobile">
+      <i class="fas fa-bars fa-2x"></i>
+    </button>
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link class="link" :to="{ name: 'Songs' }"
-          >Songs</router-link
+        <router-link class="link" :to="{ name: 'Songs' }">Songs</router-link>
+        <router-link class="link" :to="{ name: 'Artists' }"
+          >Artists</router-link
         >
-        <router-link class="link" :to="{ name: 'Artists' }">Artists</router-link>
         <router-link class="link" :to="{ name: 'Albums' }">Albums</router-link>
       </ul>
     </transition>
@@ -27,13 +33,11 @@
 </template>
 
 <script>
-import menuIcon from "../assets/Icons/bars-regular.svg";
 import Search from "./Search.vue";
 
 export default {
   name: "Navigation",
   components: {
-    menuIcon,
     Search,
   },
   data() {
@@ -75,7 +79,7 @@ export default {
   color: #fff;
 }
 header {
-  padding: 0 ;
+  padding: 0;
   top: 0;
   width: 100%;
   z-index: 1;
@@ -89,7 +93,7 @@ header {
 
   .link {
     font-weight: 500;
-    padding: 0 ;
+    padding: 0;
     transition: 0.3s color ease;
     color: #fff;
 
@@ -142,10 +146,14 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 55px;
+    top: 20px;
     right: 25px;
     height: 25px;
     width: auto;
+    &:active {
+        color: initial !important;
+        background-color: #303030;
+      }
   }
 
   .mobile-nav {
@@ -164,12 +172,12 @@ header {
       padding: 15px 0;
       color: #fff;
       &:hover {
-      color: #1eb8b8;
-    }
-    &:active {
-      transition: ease-in 0.1s;
-      color: rgb(15, 15, 15);
-    }
+        color: #1eb8b8;
+      }
+      &:active {
+        transition: ease-in 0.1s;
+        color: rgb(15, 15, 15);
+      }
     }
   }
 

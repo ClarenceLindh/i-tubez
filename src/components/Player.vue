@@ -3,8 +3,8 @@
     <button id="previous" @click="previousSong()">
       <i class="fas fa-step-backward"></i>
     </button>
-    <button id="play" @click="play()"><i class="fas fa-play"></i></button>
-    <button id="pause" @click="pause()"><i class="fas fa-pause"></i></button>
+    <button v-show="!playingStatus" id="play" @click="play()"><i class="fas fa-play"></i></button>
+    <button v-show="playingStatus" id="pause" @click="pause()"><i class="fas fa-pause"></i></button>
     <button id="next" @click="nextSong()">
       <i class="fas fa-step-forward"></i>
     </button>
@@ -14,17 +14,21 @@
 <script>
 export default {
   methods: {
+    
     play() {
-      window.player.loadVideoById();
       window.player.playVideo();
-      console.log("Play");
+      console.log("Pressed Play");
+      if(this.$store.state.currentSong)
+      this.$store.commit("setPlayingStatus", true)
     },
+
     pause() {
       window.player.pauseVideo();
-      console.log("Pause");
+      console.log("Pressed Pause");
+      this.$store.commit("setPlayingStatus", false)
     },
+
     nextSong() {
-      // console.log('clicked next song button')
       var nextSong =
         this.$store.getters.getSongList[
           this.$store.getters.getSongList.findIndex(
@@ -36,10 +40,12 @@ export default {
         window.player.loadVideoById(nextSong);
         window.player.playVideo(nextSong);
         this.$store.commit("setCurrentSong", nextSong);
+        this.$store.commit("setPlayingStatus", true)
       } else {
         console.log("No next song");
       }
     },
+
     previousSong() {
       var previouseSong =
         this.$store.getters.getSongList[
@@ -52,14 +58,22 @@ export default {
         window.player.loadVideoById(previouseSong);
         window.player.playVideo(previouseSong);
         this.$store.commit("setCurrentSong", previouseSong);
+        this.$store.commit("setPlayingStatus", true)
       } else {
         console.log("No previous song");
       }
     },
   },
+  computed: {
+    playingStatus() {
+      return this.$store.getters.getPlayingStatus;
+    },
+  },
 
   data() {
-    return {};
+    return {
+      
+    };
   },
 };
 </script>

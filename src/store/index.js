@@ -12,7 +12,7 @@ export default new Vuex.Store({
       artistResultList:[],
       albumResultList: [],
       searchPhrase: '',
-      // playingStatus: false, not implemented yet
+      playingStatus: false,
       songList: [],
       currentSong: '',
    },
@@ -34,9 +34,9 @@ export default new Vuex.Store({
          state.searchPhrase = payload
          console.log('setSearchPhrase to: ', state.searchPhrase)
       },
-      // setPlayingStatus(state, payload) {
-      //    state.playingStatus = payload
-      // },
+      setPlayingStatus(state, payload) {
+         state.playingStatus = payload
+      },
       setSongList(state, payload) {
          state.songList.push(payload)
          console.log('setSongList to: ', state.songList)
@@ -82,9 +82,9 @@ export default new Vuex.Store({
       getSearchPhrase(state) {
          return state.searchPhrase
       },
-      // getPlayingStatus(state) {
-      //    return state.playingStatus
-      // },
+      getPlayingStatus(state) {
+         return state.playingStatus
+      },
       getSongList(state) {
          return state.songList
       },
