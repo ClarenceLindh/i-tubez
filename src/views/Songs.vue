@@ -45,7 +45,7 @@ export default {
 
   computed: {
     resultList() {
-      return this.$store.state.songResultList;
+      return this.$store.getters.getSongResultList;
     },
   },
 };

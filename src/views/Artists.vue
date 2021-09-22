@@ -42,7 +42,7 @@ export default {
 
   computed: {
     resultList() {
-      return this.$store.state.artistResultList;
+      return this.$store.getters.getArtistResultList;
     },
   },
 };

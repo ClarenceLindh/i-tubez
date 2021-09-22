@@ -11,7 +11,7 @@ export default new Vuex.Store({
       songResultList: [],
       artistResultList:[],
       albumResultList: [],
-      searchPhrase: null,
+      searchPhrase: '',
       // playingStatus: false, not implemented yet
       songList: [],
       currentSong: '',
@@ -94,6 +94,9 @@ export default new Vuex.Store({
       getArtistResultList(state){
          return state.artistResultList
       },
+      getAlbumsResultList(state){
+         return state.albumResultList
+      }
    },
    modules: {
    }

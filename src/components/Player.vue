@@ -1,11 +1,13 @@
 <template>
   <div class="player-wrapper">
-    <button @click="previousSong()">
+    <button id="previous" @click="previousSong()">
       <i class="fas fa-step-backward"></i>
     </button>
-    <button @click="play()"><i class="fas fa-play"></i></button>
-    <button @click="pause()"><i class="fas fa-pause"></i></button>
-    <button @click="nextSong()"><i class="fas fa-step-forward"></i></button>
+    <button id="play" @click="play()"><i class="fas fa-play"></i></button>
+    <button id="pause" @click="pause()"><i class="fas fa-pause"></i></button>
+    <button id="next" @click="nextSong()">
+      <i class="fas fa-step-forward"></i>
+    </button>
   </div>
 </template>
 
@@ -23,11 +25,12 @@ export default {
     },
     nextSong() {
       // console.log('clicked next song button')
-      var songList = this.$store.state.songList;
-      var index = songList.findIndex(
-        (song) => song === this.$store.state.currentSong
-      );
-      var nextSong = songList[index + 1];
+      var nextSong =
+        this.$store.getters.getSongList[
+          this.$store.getters.getSongList.findIndex(
+            (song) => song === this.$store.state.currentSong
+          ) + 1
+        ];
       if (nextSong) {
         console.log("NextSong", nextSong);
         window.player.loadVideoById(nextSong);
@@ -38,11 +41,12 @@ export default {
       }
     },
     previousSong() {
-      var songList = this.$store.state.songList;
-      var index = songList.findIndex(
-        (song) => song === this.$store.state.currentSong
-      );
-      var previouseSong = songList[index - 1];
+      var previouseSong =
+        this.$store.getters.getSongList[
+          this.$store.getters.getSongList.findIndex(
+            (song) => song === this.$store.state.currentSong
+          ) - 1
+        ];
       if (previouseSong) {
         console.log("previousSong", previouseSong);
         window.player.loadVideoById(previouseSong);
@@ -62,7 +66,6 @@ export default {
 
 <style lang="scss" scoped>
 .player-wrapper {
-
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -70,6 +73,9 @@ export default {
   background: rgba($color: #000000, $alpha: 0.9);
   margin-left: 5px;
   margin-right: 60px;
+}
+
+#play {
 }
 
 button {

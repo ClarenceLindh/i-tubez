@@ -22,6 +22,8 @@ export default {
       searchPhrase: this.searchPhrase
     }
   },
+  mounted:{
+  },
 
   created() {},
 

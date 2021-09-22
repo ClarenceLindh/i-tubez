@@ -21,7 +21,7 @@ export default {
 
   computed: {
     resultList() {
-      return this.$store.state.albumResultList;
+      return this.$store.getters.getAlbumsResultList;
     },
   }
 };
