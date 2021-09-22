@@ -6,7 +6,8 @@
         @click="
           addToSonglist(post.videoId),
             addToCurrentSong(post.videoId),
-            play(post.videoId)
+            play(post.videoId),
+            addDuration(post.duration)
         "
       >
         <i class="fas fa-play fa-2x"></i>
@@ -45,6 +46,9 @@ export default {
     },
     addToCurrentSong(id) {
       this.$store.commit("setCurrentSong", id);
+    },
+    addDuration(duration){
+      this.$store.commit("setDuration", duration)
     },
     async copyLink(id) {
       try {

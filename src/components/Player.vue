@@ -3,29 +3,48 @@
     <button id="previous" @click="previousSong()">
       <i class="fas fa-step-backward"></i>
     </button>
-    <button v-show="!playingStatus" id="play" @click="play()"><i class="fas fa-play"></i></button>
-    <button v-show="playingStatus" id="pause" @click="pause()"><i class="fas fa-pause"></i></button>
+    <button v-show="!playingStatus" id="play" @click="play()">
+      <i class="fas fa-play"></i>
+    </button>
+    <button v-show="playingStatus" id="pause" @click="pause()">
+      <i class="fas fa-pause"></i>
+    </button>
     <button id="next" @click="nextSong()">
       <i class="fas fa-step-forward"></i>
     </button>
+    <!-- <div class="progress-bar-wrapper">
+      <div class="progress-bar">
+        <div class="bar">10%</div>
+      </div>
+    </div> -->
+    <Playlist />
   </div>
 </template>
 
 <script>
+import Playlist from "./Playlist.vue";
 export default {
+  name: "player",
+
+  components: {
+    Playlist,
+  },
+
+
+
   methods: {
-    
+
     play() {
       window.player.playVideo();
       console.log("Pressed Play");
-      if(this.$store.state.currentSong)
-      this.$store.commit("setPlayingStatus", true)
+      if (this.$store.state.currentSong)
+        this.$store.commit("setPlayingStatus", true);
     },
 
     pause() {
       window.player.pauseVideo();
       console.log("Pressed Pause");
-      this.$store.commit("setPlayingStatus", false)
+      this.$store.commit("setPlayingStatus", false);
     },
 
     nextSong() {
@@ -40,7 +59,7 @@ export default {
         window.player.loadVideoById(nextSong);
         window.player.playVideo(nextSong);
         this.$store.commit("setCurrentSong", nextSong);
-        this.$store.commit("setPlayingStatus", true)
+        this.$store.commit("setPlayingStatus", true);
       } else {
         console.log("No next song");
       }
@@ -58,23 +77,20 @@ export default {
         window.player.loadVideoById(previouseSong);
         window.player.playVideo(previouseSong);
         this.$store.commit("setCurrentSong", previouseSong);
-        this.$store.commit("setPlayingStatus", true)
+        this.$store.commit("setPlayingStatus", true);
       } else {
         console.log("No previous song");
       }
     },
   },
+
   computed: {
     playingStatus() {
       return this.$store.getters.getPlayingStatus;
     },
   },
 
-  data() {
-    return {
-      
-    };
-  },
+  
 };
 </script>
 
@@ -89,8 +105,23 @@ export default {
   margin-right: 60px;
 }
 
-#play {
-}
+// .progress-bar-wrapper {
+//   height: 15px;
+//   font-size: 15px;
+//   color: black;
+//   background: rgba($color: #000000, $alpha: 0.9);
+
+//   .progress-bar{
+//     .bar{
+//       width: 10%;
+//       text-align: center;
+//       background-color: #303030;
+//       line-height: 30px;
+//       color: white;
+//     }
+
+//   }
+// }
 
 button {
   margin-bottom: 10px;

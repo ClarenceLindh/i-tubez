@@ -1,13 +1,6 @@
 <template>
   <div v-show="post.videoId" class="result-card">
-    <div class="buttons">
-      <button class="share-button" @click="copyLink(post.videoId)">
-        <i class="far fa-copy fa-2x"></i>
-      </button>
-    </div>
-    <h3 class="song-name">{{ post.name }} by</h3>
-    <h3 class="name">{{ post.artist.name }}</h3>
-    <img class="image" v-bind:src="post.thumbnails[1].url" alt="" />
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe praesentium voluptas dolorem molestiae vitae nihil vel magni tempora, modi ad dolor, eaque dignissimos ratione ab veritatis rerum? Velit, molestias qui!</p>
   </div>
 </template>
 

@@ -15,6 +15,7 @@ export default new Vuex.Store({
       playingStatus: false,
       songList: [],
       currentSong: '',
+      duration:'',
    },
 
    mutations: {
@@ -45,10 +46,9 @@ export default new Vuex.Store({
          state.currentSong = payload
          console.log('setCurrentSong to: ', payload)
       },
-      setCopyLink(state, payload){
-         state.copyLink = payload
-         console.log('setCopyLink to: ', payload)
-      }
+      setDuration(state, payload){
+         state.duration = payload
+      },
    },
 
    actions: {
