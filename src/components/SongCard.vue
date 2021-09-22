@@ -29,9 +29,8 @@ export default {
 
   methods: {
     play(id) {
-      console.log(id);
       window.player.loadVideoById(id);
-      console.log(id);
+      console.log('playing: ', id);
     },
     addToSonglist(id) {
       this.$store.commit("setSongList", id);
@@ -41,8 +40,8 @@ export default {
     },
     async copyLink(id) {
       try {
-        await navigator.clipboard.writeText("localhost:8080/linkview/" + id);
-        console.log("localhost:8080/linkview/" + id);
+        await navigator.clipboard.writeText("localhost:8080/shared/" + id);
+        console.log("localhost:8080/shared/" + id);
       } catch ($e) {
         console.log("Cannot copy song with viedoId: ", id);
       }

@@ -30,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 h2 {
   font-size: 50px;
-  text-align: center;
+  text-align: left;
 }
 
 .album-card-wrap{

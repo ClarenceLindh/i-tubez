@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import Songs from "../views/Songs.vue";
 import Albums from "../views/Albums.vue";
 import Artists from "../views/Artists.vue";
-import LinkView from "../views/LinkView.vue";
+import Shared from "../views/Shared.vue";
 
 Vue.use(VueRouter);
 
@@ -34,12 +34,11 @@ const routes = [
   }
  },
  {
-  path: "/linkview/:id",
-  name: "LinkView",
-  props: true,
-  component: LinkView,
+  path: "/shared/:id",
+  name: "Shared",
+  component: Shared,
   meta: {
-   title: 'LinkView'
+   title: 'Shared'
   }
  },
 

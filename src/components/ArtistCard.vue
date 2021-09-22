@@ -1,5 +1,5 @@
 <template>
-  <div  class="result-card">
+  <div v-show="post.type = 'artist'" class="result-card">
     <button class="share-button" @click="copyLink(post.browseId)">
       <i class="far fa-copy fa-2x"></i>
     </button>
@@ -19,8 +19,8 @@ export default {
   methods: {
     async copyLink(id) {
       try {
-        await navigator.clipboard.writeText("localhost:8080/linkview/" + id);
-        console.log("localhost:8080/linkview/" + id);
+        await navigator.clipboard.writeText("localhost:8080/shared/" + id);
+        console.log("localhost:8080/shared/" + id);
       } catch ($e) {
         console.log("Cannot copy song with viedoId: ", id);
       }

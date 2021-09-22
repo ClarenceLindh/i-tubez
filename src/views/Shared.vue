@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Shared</h1>
+    <h2>Shared</h2>
     <div class="song-card-wrap" v-show="resultList.content.type = 'song'">
       <div class="container">
         <h2 class="songs-title">Songs</h2>
@@ -52,12 +52,20 @@ export default {
   },
   computed:{
     resultList() {
-      console.log(this.$store.state.songResultList)
       return this.$store.state.songResultList;
     },
   },
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+h2 {
+  font-size: 50px;
+  text-align: left;
+}
+
+.song-card-wrap{
+  margin-bottom: 60px;
+}
+
 </style>
