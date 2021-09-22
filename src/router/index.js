@@ -3,7 +3,6 @@ import VueRouter from "vue-router";
 import Songs from "../views/Songs.vue";
 import Albums from "../views/Albums.vue";
 import Artists from "../views/Artists.vue";
-import Shared from "../views/Shared.vue";
 
 Vue.use(VueRouter);
 
@@ -11,6 +10,14 @@ Vue.use(VueRouter);
 const routes = [
  {
   path: "/",
+  name: "Songs",
+  component: Songs,
+  meta: {
+   title: 'Songs'
+  }
+ },
+ {
+  path: "/songs/:id",
   name: "Songs",
   component: Songs,
   meta: {
@@ -34,11 +41,11 @@ const routes = [
   }
  },
  {
-  path: "/shared/:id",
-  name: "Shared",
-  component: Shared,
+  path: "/artists/:id",
+  name: "Artists",
+  component: Artists,
   meta: {
-   title: 'Shared'
+   title: 'Artists'
   }
  },
 

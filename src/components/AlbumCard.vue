@@ -1,7 +1,7 @@
 <template>
   <div v-show="post.type = 'album'"  class="result-card">
     <h3 class="name">{{post.album.name}}</h3>
-    <img v-bind:src="post.thumbnails[1].url" alt="" />
+    <img class="image" v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
 </template>
 
@@ -22,21 +22,21 @@ export default {
   display: flex;
   position: relative;
   transition: 500ms ease all;
-  height: 100px;
+  height: 160px;
   margin-bottom: 0.5vh;
   margin-left: 10px;
   margin-right: 10px;
-  flex-direction: row;
   background: #303030;
   color: #fff;
   border-radius: 10px;
-  
+  flex-direction: column;
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
     transform: scale(1.01);
   }
   @media (min-width: 800px) {
     flex-direction: row;
+    height: 100px;
   }
 
   .name {
@@ -47,12 +47,16 @@ export default {
   }
 
 
-  img {
+  .image {
     position: absolute;
-    height: 100px;
+    height: 160px;
     right: 0;
     object-fit: cover;
     border-radius: 0 10px 10px 0;
+    @media (min-width: 800px) {
+      transition: 500ms ease all;
+      height: 100px;
+    }
   }
 
   .share-button{

@@ -50,7 +50,7 @@ export default {
   methods: {
     checkScreen() {
       this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 750) {
+      if (this.windowWidth <= 800) {
         this.mobile = true;
         return;
       }
@@ -155,7 +155,7 @@ header {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #303030;
+    background-color: rgb(29, 29, 29);
     position: absolute;
     top: 0;
     left: 0;
@@ -165,6 +165,10 @@ header {
       color: #fff;
       &:hover {
       color: #1eb8b8;
+    }
+    &:active {
+      transition: ease-in 0.1s;
+      color: rgb(15, 15, 15);
     }
     }
   }

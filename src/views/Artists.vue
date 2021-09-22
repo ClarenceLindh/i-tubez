@@ -19,6 +19,27 @@ export default {
 
   components: { ArtistCard },
 
+  mounted(){
+    this.url_data = this.$route.params.id
+    this.search(this.url_data)
+    this.resultList()
+  },
+
+  data(){
+    return {
+      url_data: null
+    };
+  },
+
+  methods: {
+    search(url_data) {
+      this.$store.commit("setSearchPhrase", url_data);
+      this.$store.dispatch("fetchSongsBySearchPhrase");
+      this.$store.dispatch("fetchArtistsBySearchPhrase");
+      this.$store.dispatch("fetchAlbumsBySearchPhrase");
+    },
+  },
+
   computed: {
     resultList() {
       return this.$store.state.artistResultList;

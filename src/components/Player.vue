@@ -21,7 +21,22 @@ export default {
       window.player.pauseVideo();
       console.log("Pause");
     },
-  
+    nextSong() {
+      // console.log('clicked next song button')
+      var songList = this.$store.state.songList;
+      var index = songList.findIndex(
+        (song) => song === this.$store.state.currentSong
+      );
+      var nextSong = songList[index + 1];
+      if (nextSong) {
+        console.log("NextSong", nextSong);
+        window.player.loadVideoById(nextSong);
+        window.player.playVideo(nextSong);
+        this.$store.commit("setCurrentSong", nextSong);
+      } else {
+        console.log("No next song");
+      }
+    },
     previousSong() {
       var songList = this.$store.state.songList;
       var index = songList.findIndex(
@@ -38,21 +53,7 @@ export default {
       }
     },
   },
-  nextSong() {
-      var songList = this.$store.state.songList;
-      var index = songList.findIndex(
-        (song) => song === this.$store.state.currentSong
-      );
-      var nextSong = songList[index + 1];
-      if (nextSong) {
-        console.log("NextSong", nextSong);
-        window.player.loadVideoById(nextSong);
-        window.player.playVideo(nextSong);
-        this.$store.commit("setCurrentSong", nextSong);
-      } else {
-        console.log("No next song");
-      }
-    },
+
   data() {
     return {};
   },
