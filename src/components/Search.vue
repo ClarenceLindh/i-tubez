@@ -39,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 input {
-  width: 40vw;
+  width: 30vw;
   font-size: 18px;
   max-width: 400px;
   margin-top: 18px;

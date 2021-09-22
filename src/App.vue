@@ -38,6 +38,10 @@ export default {
   font-family: "Quicksand", sans-serif;
 }
 
+h2 {
+  margin-left: 10px;
+}
+
 body{
   background-color: black;
 }
@@ -46,7 +50,7 @@ body{
   display: flex;
   
   flex-direction: column;
-  min-height: 100vh;
+  
   color: #fff;
   background: black;
 }
