@@ -12,11 +12,6 @@
     <button id="next" @click="nextSong()">
       <i class="fas fa-step-forward"></i>
     </button>
-    <!-- <div class="progress-bar-wrapper">
-      <div class="progress-bar">
-        <div class="bar">10%</div>
-      </div>
-    </div> -->
     <Playlist />
   </div>
 </template>
@@ -104,24 +99,6 @@ export default {
   margin-left: 5px;
   margin-right: 60px;
 }
-
-// .progress-bar-wrapper {
-//   height: 15px;
-//   font-size: 15px;
-//   color: black;
-//   background: rgba($color: #000000, $alpha: 0.9);
-
-//   .progress-bar{
-//     .bar{
-//       width: 10%;
-//       text-align: center;
-//       background-color: #303030;
-//       line-height: 30px;
-//       color: white;
-//     }
-
-//   }
-// }
 
 button {
   margin-bottom: 10px;
