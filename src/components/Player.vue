@@ -80,9 +80,6 @@ export default {
     playList() {
       return this.$store.getter.getPlayList;
     },
-    // getCurrentSong(){
-    //   return this.$store.getter.getCurrentSong;
-    // }
   },
 };
 </script>

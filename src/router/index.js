@@ -17,7 +17,7 @@ const routes = [
   }
  },
  {
-  path: "/songs/:id",
+  path: "/songs/:id",   // ? efter id
   name: "Songsid",
   component: Songs,
   meta: {

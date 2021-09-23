@@ -15,7 +15,6 @@ export default new Vuex.Store({
       playingStatus: false,
       playList: [],
       currentSong: '',
-      duration:'',
    },
 
    mutations: {
@@ -45,9 +44,6 @@ export default new Vuex.Store({
       setCurrentSong(state, payload) {
          state.currentSong = payload
          console.log('setCurrentSong to: ', payload)
-      },
-      setDuration(state, payload){
-         state.duration = payload
       },
    },
 
