@@ -22,13 +22,17 @@ export default {
       searchPhrase: this.searchPhrase
     }
   },
+  mounted:{
+  },
 
   created() {},
 
   methods: {
     search(searchPhrase){
       this.$store.commit("setSearchPhrase", searchPhrase)
-      this.$store.dispatch("fetchBySearchPhrase")
+      this.$store.dispatch("fetchSongsBySearchPhrase")
+      this.$store.dispatch("fetchArtistsBySearchPhrase")
+      this.$store.dispatch("fetchAlbumsBySearchPhrase")
     }
   },
 
@@ -37,10 +41,10 @@ export default {
 
 <style lang="scss" scoped>
 input {
-  width: 40vw;
+  width: 30vw;
   font-size: 18px;
   max-width: 400px;
-  margin-top: 18px;
+  margin-top: 15px;
   margin-left: 25px;
   font-weight: 500;
   padding: 5px;

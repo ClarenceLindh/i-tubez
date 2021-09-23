@@ -8,18 +8,28 @@ export default new Vuex.Store({
    name: "Store",
 
    state: {
-      resultList: [],
-      searchPhrase: null,
+      songResultList: [],
+      artistResultList:[],
+      albumResultList: [],
+      searchPhrase: '',
       playingStatus: false,
-      songList: [],
+      playList: [],
       currentSong: '',
+      duration:'',
    },
 
    mutations: {
-      setResultList(state, payload) {
-         state.resultList = payload
-         console.log('setResultList to: ', state.resultList)
-         console.log(this.state.resultList.length)
+      setSongResultList(state, payload) {
+         state.songResultList = payload
+         console.log('setSongResultList to: ', state.songResultList)
+      },
+      setArtistResultList(state, payload) {
+         state.artistResultList = payload
+         console.log('setArtistResultList to: ', state.artistResultList)
+      },
+      setAlbumResultList(state, payload) {
+         state.albumResultList = payload
+         console.log('setAlbumResultList to: ', state.albumResultList)
       },
       setSearchPhrase(state, payload) {
          state.searchPhrase = payload
@@ -28,29 +38,46 @@ export default new Vuex.Store({
       setPlayingStatus(state, payload) {
          state.playingStatus = payload
       },
-      setSongList(state, payload) {
-         state.songList.push(payload)
-         console.log('setSongList to: ', state.songList)
+      setPlayList(state, payload) {
+         state.playList.push(payload)
+         console.log('setPlayList to: ', state.playList)
       },
       setCurrentSong(state, payload) {
          state.currentSong = payload
          console.log('setCurrentSong to: ', payload)
       },
+      setDuration(state, payload){
+         state.duration = payload
+      },
    },
 
    actions: {
-      async fetchBySearchPhrase() {
+      async fetchSongsBySearchPhrase() {
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/songs/search+"
+            + this.state.searchPhrase)
+            .then(response => {
+               this.commit("setSongResultList", response.data)
+            })
+      },
+      async fetchArtistsBySearchPhrase() {
+         await axios.get("https://yt-music-api.herokuapp.com/api/yt/artists/search+"
+            + this.state.searchPhrase)
+            .then(response => {
+               this.commit("setArtistResultList", response.data)
+            })
+      },
+      async fetchAlbumsBySearchPhrase() {
          await axios.get("https://yt-music-api.herokuapp.com/api/yt/search/search+"
             + this.state.searchPhrase)
             .then(response => {
-               this.commit("setResultList", response.data)
+               this.commit("setAlbumResultList", response.data)
             })
       },
    },
 
    getters: {
-      getResultList(state) {
-         return state.resultList
+      getSongResultList(state) {
+         return state.songResultList
       },
       getSearchPhrase(state) {
          return state.searchPhrase
@@ -58,12 +85,18 @@ export default new Vuex.Store({
       getPlayingStatus(state) {
          return state.playingStatus
       },
-      getSongList(state) {
-         return state.songList
+      getPlayList(state) {
+         return state.playList
       },
       getCurrentSong(state){
          return state.currentSong
       },
+      getArtistResultList(state){
+         return state.artistResultList
+      },
+      getAlbumsResultList(state){
+         return state.albumResultList
+      }
    },
    modules: {
    }

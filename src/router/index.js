@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import About from "../views/About.vue";
+import Songs from "../views/Songs.vue";
+import Albums from "../views/Albums.vue";
+import Artists from "../views/Artists.vue";
 
 Vue.use(VueRouter);
 
@@ -9,35 +10,50 @@ Vue.use(VueRouter);
 const routes = [
  {
   path: "/",
-  name: "Home",
-  component: Home,
+  name: "Songs",
+  component: Songs,
   meta: {
-   title: 'Home'
+   title: 'Songs'
   }
  },
  {
-  path: "/about",
-  name: "About",
-  component: About,
+  path: "/songs/:id",
+  name: "Songsid",
+  component: Songs,
   meta: {
-   title: 'About'
+   title: 'Songs'
   }
  },
- // {
- //  path: "/artist/:id",
- //  name: "Artist",
- //  component: Artist,
- //  meta: {
- //   title: 'Artist'
- //  }
- // },
-
+ {
+  path: "/albums",
+  name: "Albums",
+  component: Albums,
+  meta: {
+   title: 'Albums'
+  }
+ },
+ {
+  path: "/artists",
+  name: "Artists",
+  component: Artists,
+  meta: {
+   title: 'Artists'
+  }
+ },
+ {
+  path: "/artists/:id",
+  name: "Artistsid",
+  component: Artists,
+  meta: {
+   title: 'Artists'
+  }
+ },
 ]
 
 const router = new VueRouter({
  mode: "history",
  base: process.env.BASE_URL,
- routes,
+ routes
 });
 
 router.beforeEach((to, from, next) => {

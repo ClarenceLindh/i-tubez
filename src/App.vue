@@ -1,11 +1,10 @@
 <template>
   <div class="app-wrapper">
     <div class="app">
-      <Navigation />
+      <Navigation class="navigation" />
       <router-view />
-
     </div>
-    <Player />
+    <Player class="player" />
   </div>
 </template>
 
@@ -39,20 +38,20 @@ export default {
   font-family: "Quicksand", sans-serif;
 }
 
-body{
-  background-color: black;
+h2 {
+  margin-left: 10px;
 }
 
-h1{
-  margin-left: 2vw;
-  text-align: center;
+body{
+  background-color: black;
+  min-width: 396px;
 }
 
 .app {
   display: flex;
   
   flex-direction: column;
-  min-height: 100vh;
+  
   color: #fff;
   background: black;
 }
@@ -87,8 +86,10 @@ button,
   &:hover {
     background-color: rgba(48, 48, 48, 0.7);
   }
+  &:active{
+    transition: ease-in 0.1s;
+    background-color: rgb(15, 15, 15);
+  }
 }
-
-
 
 </style>

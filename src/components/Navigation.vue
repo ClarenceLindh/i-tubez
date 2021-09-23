@@ -2,36 +2,42 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }">iTubez</router-link>
+        <router-link class="header" :to="{ name: 'Songs' }">iTubez</router-link>
       </div>
       <Search id="Search" />
       <div class="nav-links">
         <ul v-show="!mobile">
-          <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-          <router-link class="link" :to="{ name: 'About' }">About</router-link>
+          <router-link class="link" :to="{ name: 'Songs' }">Songs</router-link>
+          <router-link class="link" :to="{ name: 'Artists' }"
+            >Artists</router-link
+          >
+          <router-link class="link" :to="{ name: 'Albums' }"
+            >Albums</router-link
+          >
         </ul>
       </div>
     </nav>
-    <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
+    <button @click="toggleMobileNav" class="menu-icon" v-show="mobile">
+      <i class="fas fa-bars fa-2x"></i>
+    </button>
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link @click="mobileNavFalse" class="link" :to="{ name: 'Home' }"
-          >Home</router-link
+        <router-link class="link" :to="{ name: 'Songs' }">Songs</router-link>
+        <router-link class="link" :to="{ name: 'Artists' }"
+          >Artists</router-link
         >
-        <router-link class="link" :to="{ name: 'About' }">About</router-link>
+        <router-link class="link" :to="{ name: 'Albums' }">Albums</router-link>
       </ul>
     </transition>
   </header>
 </template>
 
 <script>
-import menuIcon from "../assets/Icons/bars-regular.svg";
 import Search from "./Search.vue";
 
 export default {
   name: "Navigation",
   components: {
-    menuIcon,
     Search,
   },
   data() {
@@ -48,7 +54,7 @@ export default {
   methods: {
     checkScreen() {
       this.windowWidth = window.innerWidth;
-      if (this.windowWidth <= 750) {
+      if (this.windowWidth <= 800) {
         this.mobile = true;
         return;
       }
@@ -72,32 +78,40 @@ export default {
   font-size: 50px !important;
   color: #fff;
 }
+
 header {
-  padding: 0 25px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
   // position: fixed;
   background: #303030;
-
+  border-bottom: 5px solid black;
   .branding > a {
     font-size: 30px;
+    margin-left: 10px;
   }
 
   .link {
     font-weight: 500;
-    padding: 0 8px;
+    padding: 0;
     transition: 0.3s color ease;
     color: #fff;
 
     &:hover {
       color: #1eb8b8;
+      transition: 500ms ease all;
+        transform: scale(1.03);
+    }
+    &:active {
+      transition: 500ms ease all;
+      color: rgb(15, 15, 15);
     }
   }
 
   nav {
     display: flex;
-    padding: 25px 0;
+    padding: 10px 2px;
 
     .branding {
       display: flex;
@@ -119,10 +133,11 @@ header {
       justify-content: flex-end;
 
       ul {
-        margin-right: 32px;
+        margin-right: 10px;
 
         .link {
-          margin-right: 32px;
+          margin-right: 15px;
+          
         }
 
         .link:last-child {
@@ -135,10 +150,18 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 65px;
+    top: 0px;
     right: 25px;
     height: 25px;
     width: auto;
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    &:hover {
+        color: #1eb8b8;
+      }
+    &:active {
+        color: initial !important;
+        background-color: rgba($color: #000000, $alpha: 0.0);
+      }
   }
 
   .mobile-nav {
@@ -148,7 +171,7 @@ header {
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-color: #303030;
+    background-color: rgb(29, 29, 29);
     position: absolute;
     top: 0;
     left: 0;
@@ -157,8 +180,14 @@ header {
       padding: 15px 0;
       color: #fff;
       &:hover {
-      color: #1eb8b8;
-    }
+        color: #1eb8b8;
+        transition: 500ms ease all;
+        transform: scale(1.03);
+      }
+      &:active {
+        transition: ease-in 0.1s;
+        color: rgb(15, 15, 15);
+      }
     }
   }
 

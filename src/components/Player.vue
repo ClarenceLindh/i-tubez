@@ -1,67 +1,94 @@
 <template>
   <div class="player-wrapper">
-    <button @click="previousSong()">
+    <button id="previous" @click="previousSong()">
       <i class="fas fa-step-backward"></i>
     </button>
-    <button @click="play()"><i class="fas fa-play"></i></button>
-    <button @click="pause()"><i class="fas fa-pause"></i></button>
-    <button @click="nextSong()"><i class="fas fa-step-forward"></i></button>
+    <button v-show="!playingStatus" id="play" @click="play()">
+      <i class="fas fa-play"></i>
+    </button>
+    <button v-show="playingStatus" id="pause" @click="pause()">
+      <i class="fas fa-pause"></i>
+    </button>
+    <button id="next" @click="nextSong()">
+      <i class="fas fa-step-forward"></i>
+    </button>
   </div>
 </template>
 
 <script>
+
 export default {
+  name: "player",
+
+  components: {},
+
   methods: {
     play() {
-      window.player.loadVideoById();
       window.player.playVideo();
-      console.log("Play");
+      console.log("Pressed Play");
+      if (this.$store.state.currentSong)
+        this.$store.commit("setPlayingStatus", true);
     },
+
     pause() {
       window.player.pauseVideo();
-      console.log("Pause");
+      console.log("Pressed Pause");
+      this.$store.commit("setPlayingStatus", false);
     },
+
     nextSong() {
-      var songList = this.$store.state.songList;
-      var index = songList.findIndex(
-        (song) => song === this.$store.state.currentSong
-      );
-      var nextSong = songList[index + 1];
+      var nextSong =
+        this.$store.getters.getPlayList[
+          this.$store.getters.getPlayList.findIndex(
+            (song) => song === this.$store.state.currentSong
+          ) + 1
+        ];
       if (nextSong) {
         console.log("NextSong", nextSong);
         window.player.loadVideoById(nextSong);
         window.player.playVideo(nextSong);
         this.$store.commit("setCurrentSong", nextSong);
+        this.$store.commit("setPlayingStatus", true);
       } else {
         console.log("No next song");
       }
     },
+
     previousSong() {
-      var songList = this.$store.state.songList;
-      var index = songList.findIndex(
-        (song) => song === this.$store.state.currentSong
-      );
-      var previouseSong = songList[index - 1];
+      var previouseSong =
+        this.$store.getters.getPlayList[
+          this.$store.getters.getPlayList.findIndex(
+            (song) => song === this.$store.state.currentSong
+          ) - 1
+        ];
       if (previouseSong) {
         console.log("previousSong", previouseSong);
         window.player.loadVideoById(previouseSong);
         window.player.playVideo(previouseSong);
         this.$store.commit("setCurrentSong", previouseSong);
+        this.$store.commit("setPlayingStatus", true);
       } else {
         console.log("No previous song");
       }
     },
   },
 
-  data() {
-    return {};
+  computed: {
+    playingStatus() {
+      return this.$store.getters.getPlayingStatus;
+    },
+    playList() {
+      return this.$store.getter.getPlayList;
+    },
+    // getCurrentSong(){
+    //   return this.$store.getter.getCurrentSong;
+    // }
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .player-wrapper {
-
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -69,6 +96,10 @@ export default {
   background: rgba($color: #000000, $alpha: 0.9);
   margin-left: 5px;
   margin-right: 60px;
+}
+
+.playlist{
+  color: #fff;
 }
 
 button {
