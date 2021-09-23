@@ -4,7 +4,7 @@
       <button
         class="play-button"
         @click="
-          addToSonglist(post.videoId),
+          addToPlaylist(post.videoId),
             addToCurrentSong(post.videoId),
             play(post.videoId),
             addDuration(post.duration)
@@ -12,15 +12,15 @@
       >
         <i class="fas fa-play fa-2x"></i>
       </button>
-      <button class="queue-button" @click="addToSonglist(post.videoId)">
+      <button class="queue-button" @click="addToPlaylist(post.videoId)">
         <i class="fas fa-plus fa-2x"></i>
       </button>
       <button class="share-button" @click="copyLink(post.videoId)">
         <i class="far fa-copy fa-2x"></i>
       </button>
     </div>
-    <h3 class="song-name">{{ post.name }} by</h3>
-    <h3 class="name">{{ post.artist.name }}</h3>
+    <h3 class="song-name">{{ post.name }} by {{ post.artist.name }}</h3>
+    
     <img class="image" v-bind:src="post.thumbnails[1].url" alt="" />
   </div>
 </template>
@@ -41,8 +41,8 @@ export default {
         this.$store.commit("setPlayingStatus", true)
       }
     },
-    addToSonglist(id) {
-      this.$store.commit("setSongList", id);
+    addToPlaylist(id) {
+      this.$store.commit("setPlayList", id);
     },
     addToCurrentSong(id) {
       this.$store.commit("setCurrentSong", id);
@@ -123,6 +123,9 @@ export default {
     &:active {
       transition: 500ms ease all;
       background-color: rgb(15, 15, 15);
+    }
+    @media(min-width: 800px){
+      border-radius: 10px 0 0 10px;
     }
   }
   .queue-button {

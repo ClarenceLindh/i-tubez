@@ -79,10 +79,6 @@ export default {
   color: #fff;
 }
 
-.link {
-  
-}
-
 header {
   padding: 0;
   top: 0;
@@ -90,7 +86,7 @@ header {
   z-index: 1;
   // position: fixed;
   background: #303030;
-  
+  border-bottom: 5px solid black;
   .branding > a {
     font-size: 30px;
     margin-left: 10px;
@@ -154,7 +150,7 @@ header {
   .menu-icon {
     cursor: pointer;
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 25px;
     height: 25px;
     width: auto;

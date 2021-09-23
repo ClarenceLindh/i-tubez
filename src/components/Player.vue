@@ -38,8 +38,8 @@ export default {
 
     nextSong() {
       var nextSong =
-        this.$store.getters.getSongList[
-          this.$store.getters.getSongList.findIndex(
+        this.$store.getters.getPlayList[
+          this.$store.getters.getPlayList.findIndex(
             (song) => song === this.$store.state.currentSong
           ) + 1
         ];
@@ -56,8 +56,8 @@ export default {
 
     previousSong() {
       var previouseSong =
-        this.$store.getters.getSongList[
-          this.$store.getters.getSongList.findIndex(
+        this.$store.getters.getPlayList[
+          this.$store.getters.getPlayList.findIndex(
             (song) => song === this.$store.state.currentSong
           ) - 1
         ];
@@ -78,8 +78,11 @@ export default {
       return this.$store.getters.getPlayingStatus;
     },
     playList() {
-      return this.$store.getter.getSongList;
+      return this.$store.getter.getPlayList;
     },
+    // getCurrentSong(){
+    //   return this.$store.getter.getCurrentSong;
+    // }
   },
 };
 </script>
@@ -95,7 +98,7 @@ export default {
   margin-right: 60px;
 }
 
-.playlist-card-wrap{
+.playlist{
   color: #fff;
 }
 

@@ -18,7 +18,7 @@ const routes = [
  },
  {
   path: "/songs/:id",
-  name: "Songs",
+  name: "Songsid",
   component: Songs,
   meta: {
    title: 'Songs'
@@ -42,7 +42,7 @@ const routes = [
  },
  {
   path: "/artists/:id",
-  name: "Artists",
+  name: "Artistsid",
   component: Artists,
   meta: {
    title: 'Artists'
@@ -53,7 +53,7 @@ const routes = [
 const router = new VueRouter({
  mode: "history",
  base: process.env.BASE_URL,
- routes,
+ routes
 });
 
 router.beforeEach((to, from, next) => {

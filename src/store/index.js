@@ -13,7 +13,7 @@ export default new Vuex.Store({
       albumResultList: [],
       searchPhrase: '',
       playingStatus: false,
-      songList: [],
+      playList: [],
       currentSong: '',
       duration:'',
    },
@@ -38,9 +38,9 @@ export default new Vuex.Store({
       setPlayingStatus(state, payload) {
          state.playingStatus = payload
       },
-      setSongList(state, payload) {
-         state.songList.push(payload)
-         console.log('setSongList to: ', state.songList)
+      setPlayList(state, payload) {
+         state.playList.push(payload)
+         console.log('setPlayList to: ', state.playList)
       },
       setCurrentSong(state, payload) {
          state.currentSong = payload
@@ -85,8 +85,8 @@ export default new Vuex.Store({
       getPlayingStatus(state) {
          return state.playingStatus
       },
-      getSongList(state) {
-         return state.songList
+      getPlayList(state) {
+         return state.playList
       },
       getCurrentSong(state){
          return state.currentSong
