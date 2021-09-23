@@ -78,6 +78,11 @@ export default {
   font-size: 50px !important;
   color: #fff;
 }
+
+.link {
+  
+}
+
 header {
   padding: 0;
   top: 0;
@@ -85,7 +90,7 @@ header {
   z-index: 1;
   // position: fixed;
   background: #303030;
-
+  
   .branding > a {
     font-size: 30px;
     margin-left: 10px;
@@ -99,9 +104,11 @@ header {
 
     &:hover {
       color: #1eb8b8;
+      transition: 500ms ease all;
+        transform: scale(1.03);
     }
     &:active {
-      transition: ease-in 0.1s;
+      transition: 500ms ease all;
       color: rgb(15, 15, 15);
     }
   }
@@ -134,6 +141,7 @@ header {
 
         .link {
           margin-right: 15px;
+          
         }
 
         .link:last-child {
@@ -150,9 +158,13 @@ header {
     right: 25px;
     height: 25px;
     width: auto;
+    background-color: rgba($color: #000000, $alpha: 0.0);
+    &:hover {
+        color: #1eb8b8;
+      }
     &:active {
         color: initial !important;
-        background-color: #303030;
+        background-color: rgba($color: #000000, $alpha: 0.0);
       }
   }
 
@@ -173,6 +185,8 @@ header {
       color: #fff;
       &:hover {
         color: #1eb8b8;
+        transition: 500ms ease all;
+        transform: scale(1.03);
       }
       &:active {
         transition: ease-in 0.1s;

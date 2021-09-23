@@ -12,23 +12,17 @@
     <button id="next" @click="nextSong()">
       <i class="fas fa-step-forward"></i>
     </button>
-    <Playlist />
   </div>
 </template>
 
 <script>
-import Playlist from "./Playlist.vue";
+
 export default {
   name: "player",
 
-  components: {
-    Playlist,
-  },
-
-
+  components: {},
 
   methods: {
-
     play() {
       window.player.playVideo();
       console.log("Pressed Play");
@@ -83,9 +77,10 @@ export default {
     playingStatus() {
       return this.$store.getters.getPlayingStatus;
     },
+    playList() {
+      return this.$store.getter.getSongList;
+    },
   },
-
-  
 };
 </script>
 
@@ -98,6 +93,10 @@ export default {
   background: rgba($color: #000000, $alpha: 0.9);
   margin-left: 5px;
   margin-right: 60px;
+}
+
+.playlist-card-wrap{
+  color: #fff;
 }
 
 button {

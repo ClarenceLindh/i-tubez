@@ -48,7 +48,6 @@ const routes = [
    title: 'Artists'
   }
  },
-
 ]
 
 const router = new VueRouter({

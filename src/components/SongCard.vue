@@ -115,7 +115,7 @@ export default {
     color: black;
     background: #fff;
     margin-bottom: auto;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 0;
     &:hover {
       color: #fff;
       background-color: rgba(48, 48, 48, 0.7);
@@ -150,7 +150,7 @@ export default {
     color: black;
     background: #fff;
     margin-bottom: auto;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 0 10px 0;
     &:hover {
       color: #fff;
       background-color: rgba(48, 48, 48, 0.7);

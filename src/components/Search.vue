@@ -44,7 +44,7 @@ input {
   width: 30vw;
   font-size: 18px;
   max-width: 400px;
-  margin-top: 18px;
+  margin-top: 15px;
   margin-left: 25px;
   font-weight: 500;
   padding: 5px;

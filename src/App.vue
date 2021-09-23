@@ -2,7 +2,7 @@
   <div class="app-wrapper">
     <div class="app">
       <Navigation class="navigation" />
-      <router-view />
+      <router-view class="router-view" />
     </div>
     <Player class="player" />
   </div>
@@ -44,6 +44,7 @@ h2 {
 
 body{
   background-color: black;
+  min-width: 396px;
 }
 
 .app {
@@ -64,6 +65,15 @@ body{
 
 .link-light {
   color: #fff;
+}
+.navigation{
+  position: fixed;
+  top:0;
+  border-radius: 0 0 10px 10px;
+}
+.router-view{
+  position: relative;
+  top: 60px;
 }
 
 button,

@@ -20,9 +20,10 @@ export default {
   components: { ArtistCard },
 
   mounted(){
-    this.url_data = this.$route.params.id
-    this.search(this.url_data)
-    this.resultList()
+    if (this.$route.params.id) {
+      this.url_data = this.$route.params.id;
+      this.search(this.url_data);
+    }
   },
 
   data(){

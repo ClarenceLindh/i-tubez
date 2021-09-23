@@ -16,21 +16,22 @@
 <script>
 import SongCard from "../components/SongCard.vue";
 
-
 export default {
   name: "Home",
 
   components: { SongCard },
 
-  mounted(){
-    this.url_data = this.$route.params.id
-    this.search(this.url_data)
-    this.resultList()
+  mounted() {
+    if (this.$route.params.id) {
+      this.url_data = this.$route.params.id;
+      this.search(this.url_data);
+      this.resultList();
+    }
   },
 
-  data(){
+  data() {
     return {
-      url_data: null
+      url_data: null,
     };
   },
 
@@ -57,8 +58,7 @@ h2 {
   text-align: left;
 }
 
-.song-card-wrap{
+.song-card-wrap {
   margin-bottom: 60px;
 }
-
 </style>
