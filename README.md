@@ -1,5 +1,5 @@
 # iTubez
-Music player with youtube API.
+Music player with Youtube API.
 
 ## Project setup
 ```
